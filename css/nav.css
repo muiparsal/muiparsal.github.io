@@ -11,6 +11,25 @@
   z-index: 1000;
   transition: transform .3s ease;
 }
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease;
+  z-index: 900;
+}
+
+.nav-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Pastikan nav di atas overlay */
+.mui-nav {
+  z-index: 1000;
+}
 
 .nav-inner {
   max-width: 950px;
@@ -211,6 +230,7 @@ body.dark .icon-sun {
   }
 
 }
+
 
 
 
