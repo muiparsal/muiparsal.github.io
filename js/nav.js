@@ -24,8 +24,10 @@ function initNav() {
    menu.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", (e) => {
 
-    // Kalau ini tombol dropdown, jangan close menu utama
-    if (link.closest(".dropdown")) return;
+    // Kalau ini tombol dropdown (parent)
+    if (link.classList.contains("dropdown-toggle")) {
+      return; // jangan close menu utama
+    }
 
     if (window.innerWidth <= 768) {
       closeMenu();
@@ -33,6 +35,7 @@ function initNav() {
 
   });
 });
+
 
 
   if (overlay) overlay.addEventListener("click", closeMenu);
@@ -92,4 +95,5 @@ function initNav() {
   }
 
 }
+
 
