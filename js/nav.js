@@ -7,39 +7,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".nav-overlay");
 
   /* =========================
-     BURGER + OVERLAY
+     FUNCTION CLOSE MENU
   ========================== */
-  if (burger && menu && overlay) {
+  function closeMenu() {
+    if (menu) menu.classList.remove("open");
+    if (burger) burger.classList.remove("active");
+    if (overlay) overlay.classList.remove("show");
+    document.body.classList.remove("nav-open");
+  }
+
+  /* =========================
+     BURGER
+  ========================== */
+  if (burger && menu) {
 
     burger.addEventListener("click", () => {
+
       menu.classList.toggle("open");
       burger.classList.toggle("active");
-      overlay.classList.toggle("show");
 
-      // optional: lock scroll
+      if (overlay) {
+        overlay.classList.toggle("show");
+      }
+
       document.body.classList.toggle("nav-open");
     });
 
-    // Klik overlay → close
-    overlay.addEventListener("click", () => {
-      closeMenu();
-    });
-
-    // Klik link mobile → close
-    document.querySelectorAll(".nav-menu a").forEach(link => {
+    /* Close when click link (mobile) */
+    menu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-          closeMenu();
-        }
+        if (window.innerWidth <= 768) closeMenu();
       });
     });
   }
 
-  function closeMenu() {
-    menu.classList.remove("open");
-    burger.classList.remove("active");
-    overlay.classList.remove("show");
-    document.body.classList.remove("nav-open");
+  /* =========================
+     OVERLAY CLICK
+  ========================== */
+  if (overlay) {
+    overlay.addEventListener("click", closeMenu);
   }
 
   /* =========================
@@ -54,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-     AUTO ACTIVE LINK
+     ACTIVE LINK
   ========================== */
   const currentPage = location.pathname.split("/").pop() || "index.html";
 
@@ -62,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const href = link.getAttribute("href");
     if (!href || href === "#") return;
 
-    const cleanHref = href.split("/").pop();
-    if (cleanHref === currentPage) {
+    if (href.split("/").pop() === currentPage) {
       link.classList.add("active");
     }
   });
@@ -89,11 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
   else if (savedTheme === "false") disableDark();
   else if (prefersDark.matches) enableDark();
 
-  toggle?.addEventListener("click", () => {
-    document.body.classList.contains("dark")
-      ? disableDark()
-      : enableDark();
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      document.body.classList.contains("dark")
+        ? disableDark()
+        : enableDark();
+    });
+  }
 
   prefersDark.addEventListener("change", e => {
     if (!localStorage.getItem("darkMode")) {
