@@ -13,6 +13,9 @@ function initNav() {
     document.body.classList.remove("nav-open");
   }
 
+  /* ===============================
+     BURGER
+  =================================*/
   if (burger && menu) {
     burger.addEventListener("click", () => {
       menu.classList.toggle("open");
@@ -20,34 +23,39 @@ function initNav() {
       if (overlay) overlay.classList.toggle("show");
       document.body.classList.toggle("nav-open");
     });
+  }
 
-   menu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", (e) => {
-
-    // Kalau ini tombol dropdown (parent)
-    if (link.classList.contains("dropdown-toggle")) {
-      return; // jangan close menu utama
-    }
-
-    if (window.innerWidth <= 768) {
-      closeMenu();
-    }
-
-  });
-});
-
-
-
+  /* ===============================
+     OVERLAY CLOSE
+  =================================*/
   if (overlay) overlay.addEventListener("click", closeMenu);
 
-  document.querySelectorAll(".dropdown > a").forEach(link => {
-    link.addEventListener("click", e => {
-      if (window.innerWidth > 768) return;
-      e.preventDefault();
-      link.parentElement.classList.toggle("open");
-    });
-  });
+  /* ===============================
+     MOBILE CLICK HANDLER (FIXED)
+  =================================*/
+  if (menu) {
+    menu.addEventListener("click", (e) => {
 
+      if (window.innerWidth > 768) return;
+
+      const link = e.target.closest("a");
+      if (!link) return;
+
+      // Kalau ini dropdown parent
+      if (link.classList.contains("dropdown-toggle")) {
+        e.preventDefault();
+        link.parentElement.classList.toggle("open");
+        return;
+      }
+
+      // Kalau link biasa atau submenu
+      closeMenu();
+    });
+  }
+
+  /* ===============================
+     ACTIVE LINK
+  =================================*/
   const currentPage = location.pathname.split("/").pop() || "index.html";
 
   document.querySelectorAll(".nav-menu a").forEach(link => {
@@ -58,6 +66,9 @@ function initNav() {
     }
   });
 
+  /* ===============================
+     DARK MODE
+  =================================*/
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   function enableDark() {
@@ -84,16 +95,20 @@ function initNav() {
     });
   }
 
+  /* ===============================
+     SCROLL HIDE
+  =================================*/
   if (nav) {
     let lastScrollY = window.scrollY;
     window.addEventListener("scroll", () => {
       const current = window.scrollY;
-      if (current > lastScrollY && current > 80) nav.classList.add("hide");
-      else nav.classList.remove("hide");
+      if (current > lastScrollY && current > 80)
+        nav.classList.add("hide");
+      else
+        nav.classList.remove("hide");
+
       lastScrollY = current;
     });
   }
 
 }
-
-
