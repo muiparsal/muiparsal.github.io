@@ -1,56 +1,64 @@
-<header class="site-header">
-  <div class="nav-container">
+<nav class="mui-nav">
+  <div class="nav-inner">
+
+    <a href="/index.html" class="brand">
+	<img alt="logo" src="assets/img/logo.png">
+	<span>MUI Parakansalak</span>
+	</a>
+
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href="/index.html">Beranda</a></li>
+      <li><a href="https://muiparakansalak.or.id">Web MUI</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">
+  Jadwal
+  <svg class="chevron" viewBox="0 0 24 24" width="18" height="18">
+    <path d="M6 9l6 6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+</a>
+        <ul class="dropdown-menu">
+          <li><a href="/jadwal.html">Jadwal Sholat</a></li>
+          <li><a href="/artikel.html">Imsakiyah</a></li>
+        </ul>
+      </li>
+    </ul>
+ <button id="darkToggle" class="dark-toggle" aria-label="Toggle Dark Mode">
     
-    <!-- Logo -->
-    <a href="/" class="nav-logo">
-      <img src="/assets/img/logo-mui.png" alt="Logo MUI">
-      <span>MUI Parakansalak</span>
-    </a>
+    <!-- Moon Icon -->
+    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor"
+        d="M21 12.79A9 9 0 0 1 11.21 3
+           7 7 0 1 0 21 12.79z"/>
+    </svg>
 
-    <!-- Desktop Menu -->
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="/">Beranda</a></li>
+    <!-- Sun Icon -->
+    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor"
+        d="M12 4V2M12 22v-2M4.22 4.22l1.42 1.42
+           M18.36 18.36l1.42 1.42M2 12h2
+           M20 12h2M4.22 19.78l1.42-1.42
+           M18.36 5.64l1.42-1.42M12 8a4 4 0 100 8
+           4 4 0 000-8z"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
 
-        <li class="has-dropdown">
-          <button class="dropdown-toggle">
-            Jadwal
-            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-            </svg>
-          </button>
-
-          <ul class="dropdown">
-            <li><a href="#">Imsakiyah</a></li>
-            <li><a href="#">Kajian</a></li>
-          </ul>
-        </li>
-
-        <li><a href="https://mui.or.id" target="_blank">Web MUI</a></li>
-      </ul>
-    </nav>
-
-    <!-- Right Icons -->
-    <div class="nav-right">
-      <!-- Darkmode -->
-      <button id="darkToggle" class="icon-btn">
-        <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/>
-        </svg>
-      </button>
-
-      <!-- Burger -->
-      <button id="burger" class="burger">
-        <svg width="26" height="26" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M3 6h18M3 12h18M3 18h18"/>
-        </svg>
-      </button>
-    </div>
+  </button>
   </div>
-
-  <!-- Overlay -->
-  <div id="navOverlay"></div>
-</header>
-
+</nav>
+<div class="nav-overlay"></div>
