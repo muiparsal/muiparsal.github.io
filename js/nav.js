@@ -21,12 +21,19 @@ function initNav() {
       document.body.classList.toggle("nav-open");
     });
 
-    menu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) closeMenu();
-      });
-    });
-  }
+   menu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", (e) => {
+
+    // Kalau ini tombol dropdown, jangan close menu utama
+    if (link.closest(".dropdown")) return;
+
+    if (window.innerWidth <= 768) {
+      closeMenu();
+    }
+
+  });
+});
+
 
   if (overlay) overlay.addEventListener("click", closeMenu);
 
@@ -85,3 +92,4 @@ function initNav() {
   }
 
 }
+
