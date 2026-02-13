@@ -1,59 +1,58 @@
-
-/* ===== NAV BASE ===== */
+/* ===============================
+   NAV BASE
+=================================*/
 .mui-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 70px;
   background: var(--accent);
   color: #fff;
-  font-family:Inter,system-ui;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  font-family: Inter, system-ui;
   z-index: 1000;
   transition: transform .3s ease;
 }
-.nav-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .3s ease;
-  z-index: 900;
-}
 
-.nav-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Pastikan nav di atas overlay */
-.mui-nav {
-  z-index: 1000;
+.mui-nav.hide {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
   max-width: 950px;
   margin: auto;
   padding: 0 16px;
-  height: 70px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.nav-inner img{max-width:50px;height:auto}
-.mui-nav.hide {
-  transform: translateY(-100%);}
+
+.nav-inner img {
+  max-width: 50px;
+  height: auto;
+}
+
 .brand {
-  display:flex;
+  display: flex;
   align-items: center;
-  gap:15px;
-  color: white;
+  gap: 15px;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1em;
 }
 
-/* ===== MENU ===== */
+/* ===============================
+   RIGHT SIDE ACTIONS
+=================================*/
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===============================
+   MENU
+=================================*/
 .nav-menu {
   list-style: none;
   display: flex;
@@ -64,58 +63,28 @@
 }
 
 .nav-menu a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: .2s;
-  font-size:.9em;
+  font-size: .9em;
+  transition: opacity .2s ease;
 }
 
 .nav-menu a:hover {
   opacity: .85;
 }
-.nav-menu ul li {list-style:none}
+
 .nav-menu a.active {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #fff;
 }
 
-.dark-toggle svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* ===== DROPDOWN ===== */
-
+/* ===============================
+   DROPDOWN
+=================================*/
 .dropdown {
   position: relative;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  color: black;
-  min-width: 160px;
-  border-radius: 8px;
-  padding: 8px 0;
-  display: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,.15);
-}
-
-.dropdown-menu a {
-  color: #333;
-  display: block;
-  padding: 8px 16px;
-}
-
-.dropdown-menu a:hover {
-  background: #f5f5f5;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
 .dropdown-toggle {
   display: flex;
   align-items: center;
@@ -126,37 +95,102 @@
   transition: transform .25s ease;
 }
 
-/* Rotate saat dropdown aktif (mobile) */
 .dropdown.open .chevron {
   transform: rotate(180deg);
 }
 
-/* ===== BURGER ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 0;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px 16px;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===============================
+   BURGER
+=================================*/
 .burger {
   display: none;
   flex-direction: column;
-  gap: 4px;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
 }
 
 .burger span {
-  width: 22px;
+  width: 100%;
   height: 2px;
-  background: white;
+  background: #fff;
+  transition: transform .3s ease, opacity .3s ease;
 }
 
-/* ===== DARK MODE ===== */
-body.dark {
-  background: var(--bg-dark);
-  color: white;
+.burger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-body.dark .mui-nav {
-  background: var(--nav-dark);
+.burger.active span:nth-child(2) {
+  opacity: 0;
 }
 
+.burger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===============================
+   DARK MODE BUTTON
+=================================*/
+.dark-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Default icon */
+.icon-sun { display: none; }
+
+body.dark .icon-moon { display: none; }
+body.dark .icon-sun { display: block; }
+
+/* ===============================
+   DARK MODE DROPDOWN
+=================================*/
 body.dark .dropdown-menu {
   background: #2a2a2a;
 }
@@ -169,54 +203,61 @@ body.dark .dropdown-menu a:hover {
   background: #333;
 }
 
-.dark-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ===============================
+   OVERLAY
+=================================*/
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 900;
 }
 
-/* Default: tampil moon, sembunyikan sun */
-.icon-sun {
-  display: none;
+.nav-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-/* Saat dark mode aktif */
-body.dark .icon-moon {
-  display: none;
-}
-
-body.dark .icon-sun {
-  display: block;
-}
-
-
-/* ===== MOBILE ===== */
+/* ===============================
+   MOBILE
+=================================*/
 @media (max-width: 768px) {
+
   .burger {
     display: flex;
   }
 
   .nav-menu {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0;
     right: 0;
+
     flex-direction: column;
-    background: var(--mui-green);
-    padding: 20px;
-    display: none;
+    align-items: flex-start;
+
+    background: var(--card);
+    padding: 0 20px;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height .35s cubic-bezier(.4,0,.2,1),
+                padding .3s ease;
   }
 
   .nav-menu.open {
-    display: flex;
+    max-height: 400px;
+    padding: 20px;
   }
 
-  body.dark .nav-menu {
-    background: var(--nav-dark);
+  .nav-menu a {
+    color: var(--text);
   }
 
   .dropdown:hover .dropdown-menu {
@@ -228,8 +269,4 @@ body.dark .icon-sun {
     position: static;
     box-shadow: none;
   }
-
 }
-
-
-
