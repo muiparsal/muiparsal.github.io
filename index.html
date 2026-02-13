@@ -168,14 +168,11 @@
 <script src="js/nav.js"></script>
   
 <script>
-fetch("nav.html")
+fetch("/nav.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("nav-container").innerHTML = data;
-
-    const script = document.createElement("script");
-    script.src = "js/nav.js";
-    document.body.appendChild(script);
+    initNav(); 
   });
 </script>
 
@@ -183,3 +180,4 @@ fetch("nav.html")
 </body>
 
 </html>
+
