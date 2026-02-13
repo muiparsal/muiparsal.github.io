@@ -1,22 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initNav() {
 
   const nav = document.querySelector(".mui-nav");
-
-  /* =========================
-     BURGER MENU
-  ========================== */
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".nav-menu");
+  const toggle = document.getElementById("darkToggle");
 
+  /* ===== BURGER ===== */
   if (burger && menu) {
     burger.addEventListener("click", () => {
       menu.classList.toggle("open");
     });
   }
 
-  /* =========================
-     DROPDOWN (Mobile Support)
-  ========================== */
+  /* ===== DROPDOWN ===== */
   document.querySelectorAll(".dropdown > a").forEach(link => {
     link.addEventListener("click", e => {
       if (window.innerWidth > 768) return;
@@ -25,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =========================
-     AUTO ACTIVE LINK
-  ========================== */
+  /* ===== ACTIVE LINK ===== */
   const currentPage = location.pathname.split("/").pop() || "index.html";
 
   document.querySelectorAll(".nav-menu a").forEach(link => {
@@ -40,10 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* =========================
-     DARK MODE
-  ========================== */
-  const toggle = document.getElementById("darkToggle");
+  /* ===== DARK MODE ===== */
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   function enableDark() {
@@ -58,13 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const savedTheme = localStorage.getItem("darkMode");
 
-  if (savedTheme === "true") {
-    enableDark();
-  } else if (savedTheme === "false") {
-    disableDark();
-  } else if (prefersDark.matches) {
-    enableDark();
-  }
+  if (savedTheme === "true") enableDark();
+  else if (savedTheme === "false") disableDark();
+  else if (prefersDark.matches) enableDark();
 
   toggle?.addEventListener("click", () => {
     document.body.classList.contains("dark")
@@ -72,15 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : enableDark();
   });
 
-  prefersDark.addEventListener("change", e => {
-    if (!localStorage.getItem("darkMode")) {
-      e.matches ? enableDark() : disableDark();
-    }
-  });
-
-  /* =========================
-     HIDE / SHOW ON SCROLL
-  ========================== */
+  /* ===== SCROLL HIDE ===== */
   if (nav) {
     let lastScrollY = window.scrollY;
 
@@ -97,4 +76,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
+}
