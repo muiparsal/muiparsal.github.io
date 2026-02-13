@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  const nav = document.querySelector(".mui-nav");
+
   /* =========================
      BURGER MENU
   ========================== */
@@ -17,10 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
   document.querySelectorAll(".dropdown > a").forEach(link => {
     link.addEventListener("click", e => {
-
-      // Desktop biarkan hover bekerja
       if (window.innerWidth > 768) return;
-
       e.preventDefault();
       link.parentElement.classList.toggle("open");
     });
@@ -33,18 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".nav-menu a").forEach(link => {
     const href = link.getAttribute("href");
-
     if (!href || href === "#") return;
 
     const cleanHref = href.split("/").pop();
-
     if (cleanHref === currentPage) {
       link.classList.add("active");
     }
   });
 
   /* =========================
-     DARK MODE INIT
+     DARK MODE
   ========================== */
   const toggle = document.getElementById("darkToggle");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -59,56 +56,45 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("darkMode", "false");
   }
 
-  // Load saved preference
   const savedTheme = localStorage.getItem("darkMode");
 
   if (savedTheme === "true") {
     enableDark();
   } else if (savedTheme === "false") {
     disableDark();
-  } else {
-    // First visit → follow system
-    if (prefersDark.matches) enableDark();
+  } else if (prefersDark.matches) {
+    enableDark();
   }
 
-  /* =========================
-     DARK TOGGLE CLICK
-  ========================== */
   toggle?.addEventListener("click", () => {
     document.body.classList.contains("dark")
       ? disableDark()
       : enableDark();
   });
 
-  /* =========================
-     LISTEN SYSTEM CHANGE
-  ========================== */
   prefersDark.addEventListener("change", e => {
     if (!localStorage.getItem("darkMode")) {
       e.matches ? enableDark() : disableDark();
     }
   });
 
-});
+  /* =========================
+     HIDE / SHOW ON SCROLL
+  ========================== */
+  if (nav) {
+    let lastScrollY = window.scrollY;
 
-/* =========================
-   HIDE / SHOW ON SCROLL
-========================== */
-const nav = document.querySelector(".mui-nav");
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
 
-let lastScrollY = window.scrollY;
+      if (currentScroll > lastScrollY && currentScroll > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
 
-window.addEventListener("scroll", () => {
-
-  const currentScroll = window.scrollY;
-
-  if (currentScroll > lastScrollY && currentScroll > 80) {
-    // Scroll ke bawah → sembunyikan
-    nav.classList.add("hide");
-  } else {
-    // Scroll ke atas → tampilkan
-    nav.classList.remove("hide");
+      lastScrollY = currentScroll;
+    });
   }
 
-  lastScrollY = currentScroll;
 });
