@@ -1,19 +1,50 @@
-function initNav() {
+document.addEventListener("DOMContentLoaded", () => {
 
   const nav = document.querySelector(".mui-nav");
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".nav-menu");
   const toggle = document.getElementById("darkToggle");
+  const overlay = document.querySelector(".nav-overlay");
 
-  /* ===== BURGER ===== */
-  if (burger && menu) {
-  burger.addEventListener("click", () => {
-    menu.classList.toggle("open");
-    burger.classList.toggle("active");
-  });
-}
- 
-  /* ===== DROPDOWN ===== */
+  /* =========================
+     BURGER + OVERLAY
+  ========================== */
+  if (burger && menu && overlay) {
+
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("open");
+      burger.classList.toggle("active");
+      overlay.classList.toggle("show");
+
+      // optional: lock scroll
+      document.body.classList.toggle("nav-open");
+    });
+
+    // Klik overlay → close
+    overlay.addEventListener("click", () => {
+      closeMenu();
+    });
+
+    // Klik link mobile → close
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          closeMenu();
+        }
+      });
+    });
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    burger.classList.remove("active");
+    overlay.classList.remove("show");
+    document.body.classList.remove("nav-open");
+  }
+
+  /* =========================
+     DROPDOWN MOBILE
+  ========================== */
   document.querySelectorAll(".dropdown > a").forEach(link => {
     link.addEventListener("click", e => {
       if (window.innerWidth > 768) return;
@@ -22,7 +53,9 @@ function initNav() {
     });
   });
 
-  /* ===== ACTIVE LINK ===== */
+  /* =========================
+     AUTO ACTIVE LINK
+  ========================== */
   const currentPage = location.pathname.split("/").pop() || "index.html";
 
   document.querySelectorAll(".nav-menu a").forEach(link => {
@@ -35,7 +68,9 @@ function initNav() {
     }
   });
 
-  /* ===== DARK MODE ===== */
+  /* =========================
+     DARK MODE
+  ========================== */
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   function enableDark() {
@@ -60,7 +95,15 @@ function initNav() {
       : enableDark();
   });
 
-  /* ===== SCROLL HIDE ===== */
+  prefersDark.addEventListener("change", e => {
+    if (!localStorage.getItem("darkMode")) {
+      e.matches ? enableDark() : disableDark();
+    }
+  });
+
+  /* =========================
+     HIDE / SHOW ON SCROLL
+  ========================== */
   if (nav) {
     let lastScrollY = window.scrollY;
 
@@ -77,5 +120,4 @@ function initNav() {
     });
   }
 
-}
-
+});
