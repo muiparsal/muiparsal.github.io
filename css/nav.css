@@ -21,12 +21,13 @@
   align-items: center;
   justify-content: space-between;
 }
-.nav-inner img{max-width:43px;height:auto}
+.nav-inner img{max-width:50px;height:auto}
 .mui-nav.hide {
   transform: translateY(-100%);}
 .brand {
   display:flex;
   align-items: center;
+  gap:15px;
   color: white;
   text-decoration: none;
   font-weight: 600;
@@ -210,4 +211,5 @@ body.dark .icon-sun {
   }
 
 }
+
 
