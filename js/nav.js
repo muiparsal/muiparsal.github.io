@@ -67,6 +67,28 @@ function initNav() {
   });
 
   /* ===============================
+   DESKTOP HOVER FIX
+=================================*/
+document.querySelectorAll(".dropdown").forEach(drop => {
+
+  let timeout;
+
+  drop.addEventListener("mouseenter", () => {
+    if (window.innerWidth <= 768) return;
+    clearTimeout(timeout);
+    drop.classList.add("open");
+  });
+
+  drop.addEventListener("mouseleave", () => {
+    if (window.innerWidth <= 768) return;
+    timeout = setTimeout(() => {
+      drop.classList.remove("open");
+    }, 150); // delay kecil biar tidak flicker
+  });
+
+});
+
+  /* ===============================
      DARK MODE
   =================================*/
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -112,3 +134,4 @@ function initNav() {
   }
 
 }
+
