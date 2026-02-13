@@ -21,14 +21,16 @@
   align-items: center;
   justify-content: space-between;
 }
-.nav-inner img{max-width:50px;height:auto}
+.nav-inner img{max-width:43px;height:auto}
 .mui-nav.hide {
   transform: translateY(-100%);}
 .brand {
+  display:flex;
+  align-items: center;
   color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.1em;
 }
 
 /* ===== MENU ===== */
@@ -46,6 +48,7 @@
   text-decoration: none;
   font-weight: 500;
   transition: .2s;
+  font-size:.9em;
 }
 
 .nav-menu a:hover {
@@ -207,3 +210,4 @@ body.dark .icon-sun {
   }
 
 }
+
