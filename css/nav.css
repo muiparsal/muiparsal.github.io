@@ -55,7 +55,7 @@
 .nav-menu a:hover {
   opacity: .85;
 }
-
+.nav-menu ul li {list-style:none}
 .nav-menu a.active {
   border-bottom: 2px solid white;
 }
@@ -211,5 +211,6 @@ body.dark .icon-sun {
   }
 
 }
+
 
 
