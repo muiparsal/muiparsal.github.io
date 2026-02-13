@@ -44,7 +44,7 @@
 <body>
 
 <header>
-<div id="nav-container"></div>
+<div id="nav-placeholder"></div>
 </header>
 
 <div class="app-title">
@@ -165,19 +165,20 @@
 
 <script src="js/theme.js"></script>
 <script src="js/index.js"></script>
-<script src="js/nav.js"></script>
+
   
 <script>
 fetch("/nav.html")
   .then(res => res.text())
   .then(data => {
-    document.getElementById("nav-container").innerHTML = data;
-    initNav(); 
+    document.getElementById("nav-placeholder").innerHTML = data;
   });
 </script>
 
+ <script src="/js/nav.js"></script> 
 
 </body>
 
 </html>
+
 
