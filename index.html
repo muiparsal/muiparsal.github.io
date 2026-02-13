@@ -168,10 +168,11 @@
 
   
 <script>
-fetch("/nav.html")
+fetch("https://muiparsal.github.io/nav.html")
   .then(res => res.text())
   .then(data => {
-    document.getElementById("nav-placeholder").innerHTML = data;
+    document.getElementById("nav-container").innerHTML = data;
+    initNav();
   });
 </script>
 
@@ -180,5 +181,6 @@ fetch("/nav.html")
 </body>
 
 </html>
+
 
 
