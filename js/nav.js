@@ -7,11 +7,12 @@ function initNav() {
 
   /* ===== BURGER ===== */
   if (burger && menu) {
-    burger.addEventListener("click", () => {
-      menu.classList.toggle("open");
-    });
-  }
-
+  burger.addEventListener("click", () => {
+    menu.classList.toggle("open");
+    burger.classList.toggle("active");
+  });
+}
+ 
   /* ===== DROPDOWN ===== */
   document.querySelectorAll(".dropdown > a").forEach(link => {
     link.addEventListener("click", e => {
@@ -77,3 +78,4 @@ function initNav() {
   }
 
 }
+
