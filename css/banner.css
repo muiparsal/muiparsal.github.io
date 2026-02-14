@@ -50,7 +50,7 @@
 /* VISUAL AREA */
 .quran-visual{
   position:absolute;
-  right:10%;
+  right:0;
   top:0;
   width:45%;
   height:100%;
@@ -335,4 +335,5 @@
   .bottom-quran-text h2{
     font-size:1.4rem;
   }
+
 }
