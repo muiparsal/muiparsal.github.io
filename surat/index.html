@@ -147,6 +147,13 @@ window.SURAT_ID = 1;
   
 <img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
 <img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
+  
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
 </body>
 </html>
+
 
