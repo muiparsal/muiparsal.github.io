@@ -62,7 +62,7 @@ const slugMap = {
   58: "al-mujadilah",
   59: "al-hasyr",
   60: "al-mumtahanah",
-  61: "as-saff",
+  61: "ash-shaff",
   62: "al-jumuah",
   63: "al-munafiqun",
   64: "at-taghabun",
@@ -242,6 +242,7 @@ function scrollToTop(){
 // ===============================
 load();
 // ===============================
+
 
 
 
