@@ -36,13 +36,13 @@ const slugMap = {
   32: "as-sajdah",
   33: "al-ahzab",
   34: "saba",
-  35: "fatir",
+  35: "fathir",
   36: "ya-sin",
-  37: "as-saffat",
+  37: "ash-shaffat",
   38: "shad",
   39: "az-zumar",
   40: "ghafir",
-  41: "fussilat",
+  41: "fushshilat",
   42: "asy-syura",
   43: "az-zukhruf",
   44: "ad-dukhan",
@@ -53,7 +53,7 @@ const slugMap = {
   49: "al-hujurat",
   50: "qaf",
   51: "adz-dzariyat",
-  52: "at-tur",
+  52: "at-thur",
   53: "an-najm",
   54: "al-qamar",
   55: "ar-rahman",
@@ -115,7 +115,7 @@ const slugMap = {
   111: "al-lahab",
   112: "al-ikhlas",
   113: "al-falaq",
-  114: "an-naas"
+  114: "an-nas"
 };
 
 const artiOverride = {
@@ -148,16 +148,25 @@ const artiOverride = {
   113: "Waktu Subuh"
 };
 const OVERRIDE_LATIN = {
+  18: "Al-Kahfi",
+  20: "Thaha",
   35: "Fathir",
+  37: "Ash-Shaffat",
   38: "Shad",
+  41: "Fushshilat",
   45: "Al-Jatsiyah",
   51: "Adz-Dzariyat",
   52: "At-Thur",
-  74: "Al-Mudatstsir",
+  64: "At-Taghabun",
+  65: "At-Thalaq",
+  74: "Al-Muddatstsir",
+  82: "Al-Infithar",
+  83: "Al-Muthaffifin",
   102: "At-Takatsur",
-  108: "At-Kautsar",
-  110: "At-Nashr",
-  114: "An-Naas",
+  103: "At-'Ashr",
+  108: "Al-Kautsar",
+  110: "An-Nashr",
+  114: "An-Nas",
 };
 
 async function load() {
@@ -233,6 +242,7 @@ function scrollToTop(){
 // ===============================
 load();
 // ===============================
+
 
 
 
