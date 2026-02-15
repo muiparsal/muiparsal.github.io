@@ -3,36 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quran</title>
+<title>Al-Quran Digital | MUI Parakansalak</title>
 
 <link id="canonicalLink" rel="canonical" href="">
 <meta name="description" content="Baca Al-Qur'an lengkap dengan teks Arab, terjemah Indonesia, dan murottal audio.">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#2e7d32">
+
+<meta property="og:title" content="Al-Qur'an | MUI Parakansalak">
+<meta property="og:description" content="Al-Qur'an Digital 30 Juz lengkap dengan teks Arab, terjemah Indonesia, dan murottal audio.">
+<meta property="og:image" content="/assets/img/cover.jpg">
+<link rel="icon" href="/assets/img/favicon.ico">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#105a2d">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/surat.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/surat.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/banner-surat.css">
+<link rel="stylesheet" href="/css/player.css">
+<link rel="stylesheet" href="/css/surahquran.css">
+
 </head>
 
 <body>
 
-<header id="header-js">
-<a href="/" class="back-btn">
-  <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <polyline points="15 18 9 12 15 6"/>
-  </svg> 
-</a>
-<button class="toggle" onclick="toggleDark()">🌙</button>
-<h1>
-  <img src="https://lh3.googleusercontent.com/d/1-Ufwu2QXVkDiVmHp0wr0tq4GUVUrEpH-=w100"
-       width="100"
-       height="43"
-       alt="Al-Quranul Karim"
-       loading="eager"
-       decoding="async">
-</h1>
+<header>
+<div id="nav-container"></div>
 </header>
 
 <div class="top-container">
@@ -55,109 +53,99 @@
   <select id="suratSelect"></select>
 </div>
 
-<div id="bismillah" class="bismillah"></div>
+<div id="bismillah" class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
 <div id="content"></div>
+<script src="/js/waqafsplitter.js"></script>
 
-<script>
-/* ==========================
-   QURAN SIGN SPLITTER + HIZB
-========================== */
+<!-- BANNER -->
+<div id="banner-bottom"></div>
 
-const WAQAF_SET = new Set(['\u06D6','\u06D7','\u06D8','\u06D9','\u06DA','\u06DB','\u06DC']);
-const RUB_SIGN = '\u06DE';
-const NUN_WIQOYAH = '\u06E7';
-const IQLAB_MIM = '\u06E2';
-const IGNORE_SET = new Set(['\u06DF']);
-const QURAN_SCAN_REGEX = /([\u06D6-\u06ED])/g;
-
-function splitQuranSigns(root = document) {
-  root.querySelectorAll('.ayah-text').forEach(el => {
-    if (el.dataset.signSplit) return;
-
-    el.innerHTML = el.innerHTML.replace(QURAN_SCAN_REGEX, ch => {
-      if (IGNORE_SET.has(ch)) return ch;
-      if (ch === NUN_WIQOYAH) return `<span class="nun-wiqoyah">${ch}</span>`;
-      if (ch === IQLAB_MIM) return `<span class="iqlab-mim">${ch}</span>`;
-      if (ch === RUB_SIGN) return `<span class="rub-wrap"><span class="rub-sign">${ch}</span></span>`;
-      if (WAQAF_SET.has(ch)) return `<span class="waqaf">${ch}</span>`;
-      return ch;
-    });
-
-    el.dataset.signSplit = '1';
-  });
-}
-
-function applyHizbLabels() {
-  document.querySelectorAll('.rub-wrap').forEach((rub, i) => {
-    const r = (i + 1) % 4;
-    rub.dataset.hizbLabel =
-      r === 1 ? '¼ حزب' :
-      r === 2 ? '½ حزب' :
-      r === 3 ? '¾ حزب' : 'حزب';
-  });
-}
-
-function injectStyles() {
-  if (document.getElementById('quran-hizb-style')) return;
-  const s = document.createElement('style');
-  s.id = 'quran-hizb-style';
-  s.textContent = `
-    .rub-wrap{position:relative;display:inline-block;margin-inline-start:.1em}
-    .rub-wrap::after{
-      content:attr(data-hizb-label);
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%) translateY(-.9em);
-      font-size:.45em;
-      white-space:nowrap;
-      line-height:1
-    }`;
-  document.head.appendChild(s);
-}
-
-const observer = new MutationObserver(m => {
-  m.forEach(x => x.addedNodes.forEach(n => {
-    if (n.nodeType !== 1) return;
-    splitQuranSigns(n);
-    applyHizbLabels();
-  }));
-});
-
-observer.observe(document.body,{childList:true,subtree:true});
-splitQuranSigns(); applyHizbLabels(); injectStyles();
-</script>
 
 <div class="nav" id="navBottom">
   <button onclick="go(-1)"></button>
   <button onclick="go(1)"></button>
 </div>
-
-<div class="footer">
-  <span>© <span id="year"></span></span>
-  <a href="https://kangis.my.id" target="_blank">Kang Ismet</a> • Smart Media
-</div>
-
 </div>
 
 <div class="player-wrap" id="playerWrap">
-  <button class="close" onclick="closePlayer()" aria-label="Tutup player">
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <line x1="6" y1="6" x2="18" y2="18"/>
-      <line x1="18" y1="6" x2="6" y2="18"/>
-    </svg>
-  </button>
-  <audio id="player"></audio>
+  <audio id="player"></audio> 
+ <div class="qplayer">
+<div class="player-info" id="playerInfo"></div>
+  <button id="prevBtn" aria-label="Prev"></button>
+  <button id="playBtn" aria-label="Play"></button>
+  <button id="nextBtn" aria-label="Next"></button>
+  <span id="timeNow">0:00</span>
+<div id="qpBar" class="qpBar">
+  <div id="qpFill"></div>
+  <div id="qpThumb"></div>
 </div>
+
+  <span id="timeTotal">0:00</span>
+  <button id="repeatBtn" aria-label="Repeat"></button>
+  <input type="range" id="volume" min="0" max="1" step="0.01">
+  <button class="close" onclick="closePlayer()" aria-label="Tutup player">✕</button>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- LEFT -->
+    <div class="footer-left">
+      <img
+        src="/assets/img/logo.png"
+        alt="Al-Qur'an Digital"
+        class="footer-logo"
+      />
+      <div class="footer-desc">
+        <h3>Al-Qur’an Digital MUI Parakansalak</h3>
+        <p>
+          Aplikasi Al-Qur’an Digital ini dipersembahkan oleh MUI Kecamatan Parakansalak untuk memudahkan tadarrus Al-Qur’an.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <ul>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Khutbah">Khutbah</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Fatwa">Fatwa</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Berita">Berita</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Ubudiyah">Ubudiyah</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
+
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
 
 <button class="top" onclick="scrollToTop()">
   <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
 </button>
 
-<script src="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.polyfilled.js"></script>
-<script src="../js/theme.js"></script>
-<script src="../js/surat.js"></script>
-<script src="../js/dropdown.js"></script>
-<script src="../js/headerhide.js"></script>
+<script>
+window.SURAT_ID = 0;
+</script>
 
+<script src="/js/theme.js"></script>
+<script src="/js/surat.js"></script>
+<script src="/js/player.js"></script>
+<script src="/js/fetch.js"></script>
+<script src="/js/toast.js"></script>
+  
+<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
+<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
 </body>
 </html>
