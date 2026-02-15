@@ -17,6 +17,12 @@
 <meta name="theme-color" content="#105a2d">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<script>
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+}
+</script>
+  
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/nav.css">
 <link rel="stylesheet" href="/css/surat.css">
@@ -155,4 +161,5 @@ window.SURAT_ID = 2;
   
 </body>
 </html>
+
 
