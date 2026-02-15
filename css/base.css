@@ -253,3 +253,8 @@ svg:not(:root) {
   .app-title img{max-width:150px;heigt:auto}
 
 }
+@media (max-width: 480px) {
+  .card .arti {font-size: .87em}
+  .card .meta {font-size: .8em}
+  .footer-desc p, .footer-right a, .footer-copy {font-size: .9em}
+}
