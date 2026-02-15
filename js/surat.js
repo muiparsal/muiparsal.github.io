@@ -48,6 +48,7 @@ const OVERRIDE_LATIN = {
   45: "Al-Jatsiyah",
   51: "Adz-Dzariyat",
   52: "At-Thur",
+  61: "Ash-Shaff",
   64: "At-Taghabun",
   65: "At-Thalaq",
   74: "Al-Muddatstsir",
@@ -312,4 +313,5 @@ function slugify(n){
 }
 
 load();
+
 
