@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Quran online dengan audio murottal & terjemah Indonesia.">
 <meta name="twitter:image" content="assets/img/cover.jpg">
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0e4f27">
+<meta name="theme-color" content="#105a2d">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 <link rel="icon" href="assets/img/favicon.ico">
@@ -168,6 +168,13 @@ fetch("/nav.html")
 </script>
 
 <script src="/js/nav.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>  
 </body>
 </html>
+
 
