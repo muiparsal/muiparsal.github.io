@@ -280,8 +280,8 @@ body.dark .player-wrap .close:hover {
 }
 /* BACK TOP BUTTON */
 .top{
-  bottom:130px;
-  right:25px;
+  bottom:100px;
+  right:20px;
 }
 
 /* === PLYR DARK MODE === */
@@ -372,6 +372,7 @@ option{cursor:pointer}
   opacity:1;
   transform:translateX(-50%) translateY(0);
 }
+
 
 
 
