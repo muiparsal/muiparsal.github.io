@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Quran Digital | MUI Parakansalak</title>
+
+<link id="canonicalLink" rel="canonical" href="">
+<meta name="description" content="Baca Al-Qur'an lengkap dengan teks Arab, terjemah Indonesia, dan murottal audio.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Al-Qur'an | MUI Parakansalak">
+<meta property="og:description" content="Al-Qur'an Digital 30 Juz lengkap dengan teks Arab, terjemah Indonesia, dan murottal audio.">
+<meta property="og:image" content="/assets/img/cover.jpg">
+<link rel="icon" href="/assets/img/favicon.ico">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#105a2d">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/surat.css">
+<link rel="stylesheet" href="/css/banner.css">
+<link rel="stylesheet" href="/css/banner-surat.css">
+<link rel="stylesheet" href="/css/player.css">
+<link rel="stylesheet" href="/css/surahquran.css">
+
+</head>
+
+<body>
+
+<header>
+<div id="nav-container"></div>
+</header>
+
+<div class="top-container">
+  <h2 id="titleLatin"></h2>
+  <div id="titleArab" class="arab-title"><i class="icon-0"></i><i class="icon-13"></i></div>
+  <div id="titleArti"></div>
+  <div id="info" class="info"></div>
+</div>
+
+<div class="container">
+
+<div class="navcon">
+  <div class="nav">
+    <button onclick="go(-1)"></button>
+    <button onclick="go(1)"></button>
+  </div>
+</div>
+
+<div class="surat-select-wrap">
+  <select id="suratSelect"></select>
+</div>
+
+<div id="bismillah" class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+<div id="content"></div>
+<script src="/js/waqafsplitter.js"></script>
+
+<!-- BANNER -->
+<div id="banner-bottom"></div>
+
+
+<div class="nav" id="navBottom">
+  <button onclick="go(-1)"></button>
+  <button onclick="go(1)"></button>
+</div>
+</div>
+
+<div class="player-wrap" id="playerWrap">
+  <audio id="player"></audio> 
+ <div class="qplayer">
+<div class="player-info" id="playerInfo"></div>
+  <button id="prevBtn" aria-label="Prev"></button>
+  <button id="playBtn" aria-label="Play"></button>
+  <button id="nextBtn" aria-label="Next"></button>
+  <span id="timeNow">0:00</span>
+<div id="qpBar" class="qpBar">
+  <div id="qpFill"></div>
+  <div id="qpThumb"></div>
+</div>
+
+  <span id="timeTotal">0:00</span>
+  <button id="repeatBtn" aria-label="Repeat"></button>
+  <input type="range" id="volume" min="0" max="1" step="0.01">
+  <button class="close" onclick="closePlayer()" aria-label="Tutup player">✕</button>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- LEFT -->
+    <div class="footer-left">
+      <img
+        src="/assets/img/logo.png"
+        alt="Al-Qur'an Digital"
+        class="footer-logo"
+      />
+      <div class="footer-desc">
+        <h3>Al-Qur’an Digital MUI Parakansalak</h3>
+        <p>
+          Aplikasi Al-Qur’an Digital ini dipersembahkan oleh MUI Kecamatan Parakansalak untuk memudahkan tadarrus Al-Qur’an.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <ul>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Khutbah">Khutbah</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Fatwa">Fatwa</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Berita">Berita</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Ubudiyah">Ubudiyah</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
+
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="top" onclick="scrollToTop()">
+  <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
+</button>
+
+<script>
+window.SURAT_ID = 13;
+</script>
+
+<script src="/js/theme.js"></script>
+<script src="/js/surat.js"></script>
+<script src="/js/player.js"></script>
+<script src="/js/fetch.js"></script>
+<script src="/js/toast.js"></script>
+  
+<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
+<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+  
+</body>
+</html>
