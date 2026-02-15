@@ -3,33 +3,29 @@
 ========================= */
 .player-wrap{
   position:fixed;
-  bottom:14px;
-  left:12px;
-  right:12px
+  bottom:0;
+  left:0;
+  right:0;
   background:#fff;
-  border-radius:20px;
-  box-shadow:0 6px 22px rgba(0,0,0,.15);
   padding:10px;
+  border-top:1px solid #b1d4c5;
+  transform: translateY(120%);
 }
 /* layout */
 .qplayer{
   display:flex;
   align-items:center;
   gap:10px;
-  background:#efefef;
   padding:10px 14px;
   margin-right:40px;
-  border-radius:12px;
 }
 body.dark .player-wrap{
-  background:#2e3648;
+  background:#061810;border-color:#03160e;
 }
-body.dark .qplayer{
-  background:#111827;
-}    
+   
 body.dark #prevBtn,
 body.dark #nextBtn{
-  background:#435f74;
+  background:rgba(255, 255, 255, 0.09);
 }
 body.dark #prevBtn svg,
 body.dark #nextBtn svg{
@@ -69,7 +65,7 @@ body.dark #nextBtn svg{
 #nextBtn{
   width:32px;
   height:32px;
-  background:#cecece;
+
 }
 #prevBtn svg,#nextBtn svg{color:#5a5a5a}
 /* =========================
@@ -80,20 +76,18 @@ body.dark #nextBtn svg{
   height:30px;
   opacity:.4;
 }
-#repeatBtn.active{
-  opacity:1;
-  color:#0aa;
-}
+
 #repeatBtn{
-  opacity:.45;
-  transition:.2s;
   background:#d3d3d3; 
 }
+.dark #repeatBtn{background:rgba(255, 255, 255, 0.1);}
+.dark #repeatBtn svg{color:#eee}
+.dark #repeatBtn.active{color:#166307}
 #repeatBtn.active{
   opacity:1;
-  color:#0aa;          /* warna aksen */
+  color:#fff;          /* warna aksen */
   transform:scale(1.15);
-  background:#fff;
+background:rgb(57,135,31, 0.6);
 }
 /* timer */
 #timeNow,
@@ -105,49 +99,16 @@ body.dark #nextBtn svg{
    PLAYER INFO
 ====================== */
 .player-info{
-  text-align:center;
-  font-size:1.05em;
+	margin-right:20px;
+  font-size:.9;
+}
+.info-surat{
   font-weight:600;
-  margin-bottom:6px;
-  opacity:.85;
-  letter-spacing:.3px;
 }
-/* =========================
-   CARD PLAY (OUTLINE)
-========================= */
-.play{
-  width:25px;
-  height:25px;
-  display:grid;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:transparent;
-  border:2px solid #edcb8a;
-  color:#edcb8a;
-  cursor:pointer;
-  transition:all .15s ease;
-}
-body.dark .play{border-color:#8b4e22;color:#8b4e22}
 
-.play svg{
-  display: block;
-  width:13px;
-  height:13px;
-}
-/* hover */
-.play:hover{
-  background:rgba(0,170,170,.08);
-}
-/* active (sedang play) */
-.play.active{
-  background:#0aa;
-  color:#fff;
-  border-color:#0aa;
-}
-/* klik effect */
-.play:active{
-  transform:scale(.92);
+.info-ayat{
+  font-size:12px;
+  opacity:.8;
 }
  .qplayer svg{
   width:18px;
@@ -155,7 +116,7 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
   display:block;
 }  
  #playBtn {
-  background: linear-gradient(135deg,#0aa,#0cc);
+  background: linear-gradient(135deg,#2e7d32,#57a05b);
 } 
 /* =========================
    RANGE BASE (RESET)
@@ -184,7 +145,7 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
   appearance:none;
   width:14px;
   height:14px;
-  background:#0aa; 
+  background:#2e7d32; 
   border-radius:50%;
   cursor:pointer;
   margin-top:-4px;          /* center */
@@ -201,7 +162,7 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
 #volume::-moz-range-thumb{
   width:14px;
   height:14px;
-  background:#0aa;
+  background:#2e7d32;
   border:none;
   border-radius:50%;
 }
@@ -223,7 +184,7 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
   top:0;
   height:100%;
   width:0%;
-  background:#0aa;
+  background:#2e7d32;
   border-radius:14px;
 }
 /* thumb */
@@ -233,7 +194,7 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
   left:0;
   width:14px;
   height:14px;
-  background:#0aa;
+  background:#2e7d32;
   border-radius:50%;
   transform:translate(-50%,-50%);
 }
@@ -242,9 +203,6 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
 ========================= */
 @media (max-width:768px){
   .player-wrap{
-    left:8px;
-    right:8px;
-    bottom:8px;
     padding:7px;
   }
   /* tombol utama */
@@ -257,11 +215,6 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
   #nextBtn{
     width:30px;
     height:30px;
-  }
-  /* repeat */
-  #repeatBtn{
-    width:25px;
-    height:25px;
   }
   #volume{
     display:none;
@@ -278,7 +231,53 @@ body.dark .play{border-color:#8b4e22;color:#8b4e22}
     #timeTotal{display:none}
 
 }
+@media (max-width:450px){
+  #timeNow,#qpBar{display:none}
+  .player-info{flex-grow: 2;}
+  #playBtn{width:40px;height:40px}
+}
+/* PLAYER CARD */
+/* =========================
+   CARD PLAY (OUTLINE)
+========================= */
+.play{
+  width:25px;
+  height:25px;
+  display:grid;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:transparent;
+  border: 2px solid rgba(15, 118, 110, 0.85);
+  color:#0f766e;
+  cursor:pointer;
 
+}
+.play:hover {
+  color: #0b5f59;
+  border-color: #0b5f59;
+}
+body.dark .play{border-color:rgba(110, 231, 183, 0.6);color:#6ee7b7;}
+.dark .play:hover {
+  color: #ffffff;
+  border-color: #6ee7b7;
+}
+.play svg{
+  display: block;
+  width:13px;
+  height:13px;
+}
+
+/* active (sedang play) */
+.play.active{
+  background:#0aa;
+  color:#fff;
+  border-color:#0aa;
+}
+/* klik effect */
+.play:active{
+  transform:scale(.92);
+}
 
 
 
