@@ -24,7 +24,18 @@
 <link rel="stylesheet" href="/css/banner-surat.css">
 <link rel="stylesheet" href="/css/player.css">
 <link rel="stylesheet" href="/css/surahquran.css">
-
+<script>
+(function() {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else if (!theme) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    }
+  }
+})();
+</script>
 </head>
 
 <body>
