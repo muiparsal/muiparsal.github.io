@@ -176,11 +176,18 @@ audio.addEventListener("ended", syncIcons);
 function updateInfo(){
   if(!playerInfo) return;
 
-  const suratName = titleLatin?.textContent || '';
+  let suratName = titleLatin?.textContent || '';
+
+  // hapus nomor di depan, contoh: "2. Al-Baqarah" → "Al-Baqarah"
+  suratName = suratName.replace(/^\d+\.\s*/, '');
+
   const total = ayatEls.length;
   const now   = currentIndex >= 0 ? currentIndex+1 : 0;
 
-  playerInfo.textContent = `${suratName} • ${now}/${total}`;
+  playerInfo.innerHTML = `
+    <div class="info-surat">${suratName}</div>
+    <div class="info-ayat">Ayat ${now}/${total}</div>
+  `;
 }
 
 
@@ -231,4 +238,3 @@ setTimeout(()=>{
 
 
 });
-
