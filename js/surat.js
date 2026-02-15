@@ -39,16 +39,26 @@ const OVERRIDE_ARTI = {
 };
 
 const OVERRIDE_LATIN = {
+  18: "Al-Kahfi",
+  20: "Thaha",
   35: "Fathir",
+  37: "Ash-Shaffat",
   38: "Shad",
+  41: "Fushshilat",
   45: "Al-Jatsiyah",
   51: "Adz-Dzariyat",
-  52: "At-Tur",
-  74: "Al-Mudatstsir",
+  52: "At-Thur",
+  64: "At-Taghabun",
+  65: "At-Thalaq",
+  74: "Al-Muddatstsir",
+  82: "Al-Infithar",
+  83: "Al-Muthaffifin",
+  93: "Ad-Dhuha",
   102: "At-Takatsur",
+  103: "At-'Ashr",
   108: "Al-Kautsar",
   110: "An-Nashr",
-  114: "An-Naas",
+  114: "An-Nas",
 };
 
 const titleLatin=document.getElementById('titleLatin');
@@ -302,3 +312,4 @@ function slugify(n){
 }
 
 load();
+
