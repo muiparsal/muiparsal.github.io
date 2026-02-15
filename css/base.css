@@ -2,7 +2,7 @@
   --bg:#efefef;
   --card:#fff;
   --card2:#eeecec;
-  --text:#1f2937;
+  --text:#17181a;
   --accent:#18703a  ;
   --dark-accent:#078281;
   --light-accent:#e3fcf0;
@@ -251,4 +251,5 @@ svg:not(:root) {
 @media (max-width: 600px) {
   .app-title{padding:0}
   .app-title img{max-width:150px;heigt:auto}
+
 }
