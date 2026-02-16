@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Load banner
-  loadComponent("banner-top", "/components/banner-top.html");
   loadComponent("banner-bottom", "/components/banner-bottom.html");
+
 
 });
