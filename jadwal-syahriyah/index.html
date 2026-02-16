@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jadwal Imsakiyah Kecamatan Parakansalak</title>
+
+<meta name="description" content="Jadwal Imsakiyah Kabupaten Sukabumi hari ini">
+
+<meta property="og:title" content="Jadwal Imsakiyah Kecamatan Parakansalak">
+<meta property="og:description" content="Jadwal imsakiyah hari ini">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="/assets/img/imsakiyah.jpg">
+
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/assets/img/favicon.ico">
+<!-- <link rel="manifest" href="/manifest.json"> -->
+<meta name="theme-color" content="#105a2d">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/nav.css"> 
+<link rel="stylesheet" href="/css/surat.css">
+<link rel="stylesheet" href="/css/banner-surat.css">
+<link rel="stylesheet" href="/css/jadwal-imsakiyah.css">
+
+ <style>
+ .footer-container,.footer-bottom{max-width:850px}
+ </style>
+ 
+</head>
+
+<body>
+
+<header>
+<div id="nav-container"></div>
+</header>
+
+
+<div class="jadwalContainer">
+<div class="topWrap">
+<h2>Jadwal Syahriyah MUI Parakansalak 2026 M</h2>
+</div>
+<div id="syahriyah"></div>
+<div class="desc">
+<ol>
+<li>Database diambil dari <strong>DHR kabupaten Sukabumi</strong>.</li>
+<li>Jadwal ini berlaku untuk Kabupaten Sukabumi, kecuali : <strong>Cibadak</strong>, <strong>Parungkuda</strong>, <strong>Cicurug</strong>, <strong>Cidahu</strong>, <strong>Kabandungan</strong>, <strong>Kalapanunggal</strong>, <strong>Parakansalak</strong>, <strong>Cikidang</strong>, <strong>Ciracap</strong>, <strong>Jampang Kulon</strong>, <strong>Surade</strong>, <strong>Palabuhanratu</strong>, <strong>Cisolok</strong>, <strong>Cikakak</strong>, <strong>Bantargadung</strong>, <strong>Simpenan</strong> dan <strong>Waluran</strong> (ditambah 1 menit).</li>
+</ol>
+</div>
+<!-- BANNER -->
+<div id="banner-bottom"></div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- LEFT -->
+    <div class="footer-left">
+      <img
+        src="/assets/img/logo.png"
+        alt="Al-Qur'an Digital"
+        class="footer-logo"
+      />
+      <div class="footer-desc">
+        <h3>Al-Qur’an Digital MUI Parakansalak</h3>
+        <p>
+          Aplikasi Al-Qur’an Digital ini dipersembahkan oleh MUI Kecamatan Parakansalak untuk memudahkan tadarrus Al-Qur’an.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <ul>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Khutbah">Khutbah</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Fatwa">Fatwa</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Berita">Berita</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Ubudiyah">Ubudiyah</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
+
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="top" onclick="scrollToTop()">
+  <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
+</button>
+ 
+
+<script src="/js/fetch.js"></script>
+<script src="/js/toast.js"></script>
+
+  <script>
+fetch('/api/syahriyah.json')
+.then(res => res.json())
+.then(data => {
+
+  const container = document.getElementById('syahriyah');
+
+  // ==========================
+  // WIB TIME
+  // ==========================
+  function getWIBNow() {
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    return new Date(utc + (7 * 60 * 60 * 1000));
+  }
+
+  function buatTanggalWIB(tanggal, jam){
+    const [year, month, day] = tanggal.split('-').map(Number);
+    const [hour, minute] = jam.split(':').map(Number);
+    const utcTime = Date.UTC(year, month - 1, day, hour - 7, minute);
+    return new Date(utcTime);
+  }
+
+  const nowWIB = getWIBNow();
+
+  const bulanSekarang =
+    nowWIB.getFullYear() + '-' +
+    String(nowWIB.getMonth() + 1).padStart(2,'0');
+
+  const jadwal = data.find(item =>
+    item.bulan === bulanSekarang && item.aktif
+  );
+
+  if(!jadwal){
+    container.innerHTML = "<p>Tidak ada jadwal bulan ini.</p>";
+    return;
+  }
+
+  const mulai = buatTanggalWIB(jadwal.tanggal, jadwal.jam_mulai);
+  const selesai = buatTanggalWIB(jadwal.tanggal, jadwal.jam_selesai);
+
+  const tanggalFormat = new Date(jadwal.tanggal)
+    .toLocaleDateString('id-ID',{
+      day:'numeric',
+      month:'long',
+      year:'numeric'
+    });
+
+  function render(){
+
+    const now = getWIBNow();
+
+    let badgeHTML = "";
+    let statusHTML = "";
+    let countdownHTML = "";
+
+    if(now >= selesai){
+      statusHTML = `<div class="selesai">Acara telah selesai</div>`;
+    }
+    else if(now >= mulai){
+      badgeHTML = `<span class="badge">Sedang Berlangsung</span>`;
+      countdownHTML = `<div class="countdown">Sedang berlangsung...</div>`;
+    }
+    else{
+      const distance = mulai - now;
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance / (1000*60*60)) % 24);
+      const minutes = Math.floor((distance / (1000*60)) % 60);
+
+      countdownHTML =
+        `<div class="countdown">
+          ${days} hari ${hours} jam ${minutes} menit lagi
+        </div>`;
+    }
+
+    container.innerHTML = `
+      <div class="card">
+        ${badgeHTML}
+        <h2>${jadwal.judul}</h2>
+        <p><strong>Tanggal:</strong> ${tanggalFormat}</p>
+        <p><strong>Jam:</strong> ${jadwal.jam_mulai} - ${jadwal.jam_selesai} WIB</p>
+        <p><strong>Lokasi:</strong> ${jadwal.lokasi}</p>
+        <p>
+  <strong>Alamat:</strong> 
+  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(jadwal.alamat)}" target="_blank">
+    ${jadwal.alamat || '-'}
+  </a>
+</p>
+        <p><strong>Pemateri:</strong> ${jadwal.pemateri}</p>
+        <p><strong>Materi:</strong> ${jadwal.materi}</p>
+        <p>${jadwal.deskripsi || ''}</p>
+        ${countdownHTML}
+        ${statusHTML}
+      </div>
+    `;
+  }
+
+  render();
+  setInterval(render, 60000);
+
+})
+.catch(() => {
+  document.getElementById('syahriyah')
+    .innerHTML = "Gagal memuat data.";
+});
+</script>
+
+<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
+<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
+
+<script>
+//  if ('serviceWorker' in navigator) {
+//    navigator.serviceWorker.register('/service-worker.js');
+//  }
+</script>
+
+</body>
+</html>
+
+
+
