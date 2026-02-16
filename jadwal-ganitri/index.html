@@ -176,80 +176,31 @@ function todayKeyWIB(){
   const now = nowWIB();
 
   const year  = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day   = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2,'0');
+  const day   = String(now.getDate()).padStart(2,'0');
 
   return `${year}-${month}-${day}`;
 }
 
-
 /* =========================
-   INIT
+   FORMAT COUNTDOWN
 ========================= */
 
-async function init(){
+function formatCountdown(h, m, s){
+  const parts = [];
 
-  const res = await fetch('/api/ganitri.json');
-  const jadwal = await res.json();
+  if(h > 0) parts.push(`${h} jam`);
+  if(m > 0) parts.push(`${m} menit`);
+  parts.push(`${s} detik`);
 
-  const todayKey = todayKeyWIB();
-  const data = jadwal[todayKey];
-
-  const statusEl = document.getElementById("statusText");
-
-  if(!data){
-    statusEl.textContent = "Tidak ada siaran hari ini";
-    return;
-  }
-
-  const now = nowWIB();
-
-  document.getElementById("hariTgl").textContent =
-    now.toLocaleDateString("id-ID", {
-      weekday:'long',
-      year:'numeric',
-      month:'long',
-      day:'numeric',
-      timeZone:"Asia/Jakarta"
-    });
-
-  document.getElementById("hijriyah").textContent = data.hijriyah;
-  document.getElementById("pemateri").textContent = data.pemateri;
-  document.getElementById("jabatan").textContent = data.jabatan;
-  document.getElementById("materi").textContent = data.materi;
-  document.getElementById("kancaSiar").textContent = data.kancaSiar;
-
-  const start = new Date(todayKey + "T17:00:00+07:00");
-  const end   = new Date(todayKey + "T18:10:00+07:00");
-
-  function updateStatus(){
-
-    const now = nowWIB();
-
-    if(now < start){
-  const diff = start - now;
-
-  const h = Math.floor(diff / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-
-  setStatus("countdown", `${h}j ${m}m ${s}d`);
-}
-else if(now >= start && now <= end){
-  setStatus("live");
-}
-else{
-  setStatus("done");
+  return parts.join(" ");
 }
 
-  }
+/* =========================
+   SET STATUS (SVG)
+========================= */
 
-  updateStatus();
-  setInterval(updateStatus,1000);
-
-}
 function setStatus(type, timeText = ""){
-
   const statusEl = document.getElementById("statusText");
 
   if(type === "done"){
@@ -264,7 +215,7 @@ function setStatus(type, timeText = ""){
     `;
   }
 
-  if(type === "live"){
+  else if(type === "live"){
     statusEl.style.color = "#dc2626";
     statusEl.innerHTML = `
       <svg width="18" height="18" viewBox="0 0 24 24"
@@ -275,7 +226,7 @@ function setStatus(type, timeText = ""){
     `;
   }
 
-  if(type === "countdown"){
+  else if(type === "countdown"){
     statusEl.style.color = "#f59e0b";
     statusEl.innerHTML = `
       <svg width="18" height="18" viewBox="0 0 24 24"
@@ -287,8 +238,87 @@ function setStatus(type, timeText = ""){
       <span>Mulai dalam ${timeText}</span>
     `;
   }
-
 }
+
+/* =========================
+   INIT
+========================= */
+
+async function init(){
+
+  try {
+
+    const res = await fetch('/api/ganitri.json');
+
+    if(!res.ok) throw new Error("JSON tidak ditemukan");
+
+    const jadwal = await res.json();
+
+    const todayKey = todayKeyWIB();
+    const data = jadwal[todayKey];
+
+    const statusEl = document.getElementById("statusText");
+
+    if(!data){
+      statusEl.textContent = "Tidak ada siaran hari ini";
+      return;
+    }
+
+    const now = nowWIB();
+
+    document.getElementById("hariTgl").textContent =
+      now.toLocaleDateString("id-ID", {
+        weekday:'long',
+        year:'numeric',
+        month:'long',
+        day:'numeric',
+        timeZone:"Asia/Jakarta"
+      });
+
+    document.getElementById("hijriyah").textContent = data.hijriyah;
+    document.getElementById("pemateri").textContent = data.pemateri;
+    document.getElementById("jabatan").textContent = data.jabatan;
+    document.getElementById("materi").textContent = data.materi;
+    document.getElementById("kancaSiar").textContent = data.kancaSiar;
+
+    const start = new Date(todayKey + "T17:00:00+07:00");
+    const end   = new Date(todayKey + "T18:10:00+07:00");
+
+    function updateStatus(){
+
+      const now = nowWIB();
+
+      if(now < start){
+
+        const diff = start - now;
+
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        setStatus("countdown", formatCountdown(h,m,s));
+      }
+      else if(now >= start && now <= end){
+        setStatus("live");
+      }
+      else{
+        setStatus("done");
+      }
+    }
+
+    updateStatus();
+    setInterval(updateStatus,1000);
+
+  } catch(err){
+    console.error(err);
+    document.getElementById("statusText").textContent =
+      "Gagal memuat jadwal";
+  }
+}
+
+/* =========================
+   START
+========================= */
 
 init();
 
