@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jadwal Ganitri</title>
+
+<meta name="description" content="Jadwal MUI Parakansalak di Radio Ganitri selama Bulan Ramadhan">
+
+<meta property="og:title" content="Jadwal Tausiah Radio Ganitri">
+<meta property="og:description" content="Jadwal MUI Parakansalak di Radio ganitri selama Bulan Ramadhan">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="/assets/img/imsakiyah.jpg">
+
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/assets/img/favicon.ico">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#105a2d">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/banner-surat.css">
+
+<style>
+
+.radio-card{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+  background:#ffffff;
+  border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.radio-card h2{
+  margin-bottom:16px;
+  color:#065f46;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px solid #f1f1f1;
+}
+
+.row:last-child{
+  border-bottom:none;
+}
+
+.label{
+  font-weight:600;
+  color:#047857;
+}
+
+.status{
+  margin-top:15px;
+  font-weight:700;
+  text-align:center;
+  font-size:16px;
+}
+</style>
+ 
+</head>
+
+<body>
+
+<header>
+<div id="nav-container"></div>
+</header>
+
+
+
+<div class="radio-card">
+
+  <h2>Info Siaran Hari Ini</h2>
+
+  <div class="row">
+    <span class="label">Hari / Tgl</span>
+    <span id="hariTgl"></span>
+  </div>
+
+  <div class="row">
+    <span class="label">Hijriyah</span>
+    <span id="hijriyah"></span>
+  </div>
+
+  <div class="row">
+    <span class="label">Pemateri</span>
+    <span id="pemateri"></span>
+  </div>
+
+  <div class="row">
+    <span class="label">Jabatan</span>
+    <span id="jabatan"></span>
+  </div>
+
+  <div class="row">
+    <span class="label">Materi</span>
+    <span id="materi"></span>
+  </div>
+
+  <div class="row">
+    <span class="label">Kanca Siar</span>
+    <span id="kancaSiar"></span>
+  </div>
+
+  <div class="status" id="statusText"></div>
+
+</div>
+
+<script>
+/* =========================
+   TIMEZONE WIB FIX
+========================= */
+
+function nowWIB(){
+  return new Date(
+    new Date().toLocaleString("en-US", { timeZone:"Asia/Jakarta" })
+  );
+}
+
+function todayKeyWIB(){
+  const now = nowWIB();
+  return now.toISOString().split("T")[0];
+}
+
+/* =========================
+   INIT
+========================= */
+
+async function init(){
+
+  const res = await fetch('/api/ganitri.json');
+  const jadwal = await res.json();
+
+  const todayKey = todayKeyWIB();
+  const data = jadwal[todayKey];
+
+  const statusEl = document.getElementById("statusText");
+
+  if(!data){
+    statusEl.textContent = "Tidak ada siaran hari ini";
+    return;
+  }
+
+  const now = nowWIB();
+
+  document.getElementById("hariTgl").textContent =
+    now.toLocaleDateString("id-ID", {
+      weekday:'long',
+      year:'numeric',
+      month:'long',
+      day:'numeric',
+      timeZone:"Asia/Jakarta"
+    });
+
+  document.getElementById("hijriyah").textContent = data.hijriyah;
+  document.getElementById("pemateri").textContent = data.pemateri;
+  document.getElementById("jabatan").textContent = data.jabatan;
+  document.getElementById("materi").textContent = data.materi;
+  document.getElementById("kancaSiar").textContent = data.kancaSiar;
+
+  const start = new Date(todayKey + "T17:00:00+07:00");
+  const end   = new Date(todayKey + "T18:10:00+07:00");
+
+  function updateStatus(){
+
+    const now = nowWIB();
+
+    if(now < start){
+      const diff = start - now;
+
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      statusEl.textContent =
+        "⏳ Mulai dalam " + h + "j " + m + "m " + s + "d";
+    }
+    else if(now >= start && now <= end){
+      statusEl.textContent = "🔴 Sedang Berlangsung";
+    }
+    else{
+      statusEl.textContent = "✅ Selesai";
+    }
+
+  }
+
+  updateStatus();
+  setInterval(updateStatus,1000);
+
+}
+
+init();
+
+</script>
+
+<!-- BANNER -->
+<div id="banner-bottom"></div>
+
+</div>
+
+<footer class="site-footer">
+ 
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
+
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="top" onclick="scrollToTop()">
+  <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
+</button>
+
+<script src="/js/fetch.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
+<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+
+</body>
+</html>
