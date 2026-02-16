@@ -2,7 +2,7 @@
    SERVICE WORKER – MUSHAF ONLINE (OPTIMIZED)
    =============================== */
 
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.0.1';
 
 const STATIC_CACHE = `mushaf-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `mushaf-runtime-${CACHE_VERSION}`;
@@ -279,3 +279,4 @@ self.addEventListener('fetch', event => {
   );
 
 });
+
