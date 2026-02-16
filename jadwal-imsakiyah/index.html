@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jadwal Imsakiyah Kabupaten Sukabumi</title>
+<title>Jadwal Imsakiyah Kecamatan Parakansalak</title>
 
 <meta name="description" content="Jadwal Imsakiyah Kabupaten Sukabumi hari ini">
 
-<meta property="og:title" content="Jadwal Imsakiyah Kab. Sukabumi">
+<meta property="og:title" content="Jadwal Imsakiyah Kecamatan Parakansalak">
 <meta property="og:description" content="Jadwal imsakiyah hari ini">
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
@@ -17,7 +17,7 @@
 
 <link rel="icon" href="/assets/img/favicon.ico">
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#046260">
+<meta name="theme-color" content="#105a2d">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="../css/base.css">
@@ -25,34 +25,22 @@
 <link rel="stylesheet" href="../css/banner.css">
 <link rel="stylesheet" href="../css/jadwal-imsakiyah.css">
 
+ <style>
+ .footer-container,.footer-bottom{max-width:850px}
+ </style>
  
 </head>
 
 <body>
 
-<header id="header-js">
-<a href="/" class="back-btn">
-  <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <polyline points="15 18 9 12 15 6"/>
-  </svg> 
-</a>
-<button class="toggle" onclick="toggleDark()">🌙</button>
-<h1><a href="/">
-  <img src="../assets/img/quran-logo-small3.png"
-       width="100"
-       height="52"
-       alt="Al-Quranul Karim"
-       loading="eager"
-       decoding="async"></a>
-</h1>
+<header>
+<div id="nav-container"></div>
 </header>
-
 
 
 <div class="jadwalContainer">
 <div class="topWrap">
-<h2>Jadwal Imsakiyah Ramadhan 1447 H</h2>
-<p>Untuk Kabupaten Sukabumi dan Sekitarnya</p>
+<h2>Jadwal Imsakiyah Ramadhan 1447 H / 2026 M</h2>
 </div>
 <div class="card-jadwal">
 
@@ -70,41 +58,62 @@
 </ol>
 </div>
 <!-- BANNER -->
-<div class="bottom-quran-banner-wrap" id="btmquranBanner">
-  <a href="https://quran.kangis.my.id" class="bottom-quran-banner" target="_blank" rel="noopener">
-    <div class="bottom-quran-text">
-      <p>Isi Ramadhanmu dengan membaca</p>
-      <h2>Aplikasi Al-Qur'an Digital</h2>
-      <span class="bottom-quran-btn">KLIK DISINI</span>
-    </div>
-    <div class="bottom-quran-visual">
-      <div class="bottom-quran-circle"></div>
+<div id="banner-bottom"></div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- LEFT -->
+    <div class="footer-left">
       <img
-        src="../assets/img/phone.png"
-        alt="Aplikasi Al-Qur'an"
-        class="bottom-quran-phone"
-      >
+        src="/assets/img/logo.png"
+        alt="Al-Qur'an Digital"
+        class="footer-logo"
+      />
+      <div class="footer-desc">
+        <h3>Al-Qur’an Digital MUI Parakansalak</h3>
+        <p>
+          Aplikasi Al-Qur’an Digital ini dipersembahkan oleh MUI Kecamatan Parakansalak untuk memudahkan tadarrus Al-Qur’an.
+        </p>
+      </div>
     </div>
-  </a>
-  <button class="bottom-quran-close" onclick="document.getElementById('btmquranBanner').style.display='none'">×</button>
-</div>
-<!-- BANNER END-->
 
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <ul>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Khutbah">Khutbah</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Fatwa">Fatwa</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Berita">Berita</a></li>
+        <li><a href="https://www.muiparakansalak.or.id/search/label/Ubudiyah">Ubudiyah</a></li>
+      </ul>
+    </div>
+  </div>
 
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
 
-<div class="footer">
-  <span>© <span id="year"></span></span>
-  <a href="https://kangis.my.id" target="_blank">Kang Ismet</a> • Smart Media
-</div>
-
-</div>
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
 
 <button class="top" onclick="scrollToTop()">
   <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
 </button>
 
-
+<script src="/js/fetch.js"></script>
+<script src="/js/toast.js"></script>
 <script src="/js/jadwal-imsakiyah.js"></script>
+
+<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
+<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
 
 <script>
   if ('serviceWorker' in navigator) {
