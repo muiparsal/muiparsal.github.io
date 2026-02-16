@@ -74,6 +74,8 @@ body.dark .radio-card{color:#e2e8f0;}
   color:#29a145;
 }
   .dark .status {color:#50d66f}
+  .status svg{width:30px;height:30px}
+  .svg-icon{color:#1fc860}
 </style>
  
 </head>
@@ -224,7 +226,9 @@ async function init(){
       statusEl.textContent = "🔴 Sedang Berlangsung";
     }
     else{
-      statusEl.textContent = "✅ Selesai";
+      statusEl.innerHTML = "
+<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M589.6 753.7c-24.7 27.4-67.3 29.6-94.7 5l-223.3-201c-27.4-24.7-29.6-67.3-5-94.7 24.7-27.4 67.3-29.6 94.7-5l173.4 156.1 335.9-373c-16.8-22.1-35.8-43-57.2-62.3C629.7 13.4 346.5 28.2 181 212S30.4 679 214.2 844.5s467 150.7 632.5-33.1c112.5-124.9 141.6-295.6 91-444.2L589.6 753.7z"  /></svg>
+        Selesai";
     }
 
   }
