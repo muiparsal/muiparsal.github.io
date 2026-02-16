@@ -20,14 +20,15 @@
 <meta name="theme-color" content="#105a2d">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/banner-surat.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/nav.css">  
+<link rel="stylesheet" href="/css/banner-surat.css">
 
 <style>
 
 .radio-card{
-  max-width:600px;
-  margin:auto;
+  max-width:650px;
+  margin:20px 30px;
   padding:20px;
   background:#ffffff;
   border-radius:16px;
@@ -72,7 +73,7 @@
 </header>
 
 
-
+<div class="container">
 <div class="radio-card">
 
   <h2>Info Siaran Hari Ini</h2>
@@ -111,6 +112,34 @@
 
 </div>
 
+  
+</div>
+
+<!-- BANNER -->
+<div id="banner-bottom"></div>
+
+</div>
+
+<footer class="site-footer">
+ 
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
+    </span>
+
+    <nav class="footer-nav">
+      <a href="https://quran.muiparakansalak.or.id">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/filantropi.html">Donasi</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="top" onclick="scrollToTop()">
+  <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
+</button>
+  
 <script>
 /* =========================
    TIMEZONE WIB FIX
@@ -198,37 +227,8 @@ init();
 
 </script>
 
-<!-- BANNER -->
-<div id="banner-bottom"></div>
-
-</div>
-
-<footer class="site-footer">
- 
-  <!-- BOTTOM -->
-  <div class="footer-bottom">
-    <span class="footer-copy">
-      © 2026 · <a href="/">Al-Qur’an Digital</a> by <a href="https://quran.kangis.my.id">Smart Media</a>
-    </span>
-
-    <nav class="footer-nav">
-      <a href="https://quran.muiparakansalak.or.id">Home</a>
-      <a href="/about.html">About Us</a>
-      <a href="/filantropi.html">Donasi</a>
-    </nav>
-  </div>
-</footer>
-
-<button class="top" onclick="scrollToTop()">
-  <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"></path></svg>
-</button>
-
 <script src="/js/fetch.js"></script>
 <script src="/js/toast.js"></script>
-
-
-<img src="/assets/img/arabesque3.png" class="ornament ornament-left" alt="">
-<img src="/assets/img/arabesque3.png" class="ornament ornament-right" alt="">
 
 <script>
   if ('serviceWorker' in navigator) {
