@@ -25,24 +25,29 @@
 <link rel="stylesheet" href="/css/banner-surat.css">
 
 <style>
-
+  .container{max-width:950px;margin:0 auto}
+/* CARD SURAT */
 .radio-card{
-  max-width:650px;
-  margin:20px 30px;
-  padding:20px;
-  background:#ffffff;
-  border-radius:16px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  background:var(--card);
+  max-width:600px;
+  padding:14px;
+  border-radius:14px;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.05);
+  cursor:pointer;
+  border:1px solid var(--border-accent);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
+body.dark .radio-card{color:#e2e8f0;}
 
 .radio-card h2{
   margin-bottom:16px;
   color:#065f46;
+  text-align:center;
 }
 
 .row{
   display:flex;
-  justify-content:space-between;
+  justify-content:left;
   padding:8px 0;
   border-bottom:1px solid #f1f1f1;
 }
@@ -54,6 +59,7 @@
 .label{
   font-weight:600;
   color:#047857;
+  min-width:110px;
 }
 
 .status{
@@ -76,7 +82,7 @@
 <div class="container">
 <div class="radio-card">
 
-  <h2>Info Siaran Hari Ini</h2>
+  <h2>Pemateri Mapag Bedug Ramadhan</h2>
 
   <div class="row">
     <span class="label">Hari / Tgl</span>
