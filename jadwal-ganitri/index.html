@@ -76,6 +76,14 @@ body.dark .radio-card{color:#e2e8f0;}
   .dark .status {color:#50d66f}
   .status svg{width:30px;height:30px}
   .svg-icon{color:#1fc860}
+  .status{
+  margin-top:15px;
+  font-weight:700;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
 </style>
  
 </head>
@@ -213,28 +221,66 @@ async function init(){
     const now = nowWIB();
 
     if(now < start){
-      const diff = start - now;
+  const diff = start - now;
 
-      const h = Math.floor(diff / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
 
-      statusEl.textContent =
-        "⏳ Mulai dalam " + h + "j " + m + "m " + s + "d";
-    }
-    else if(now >= start && now <= end){
-      statusEl.textContent = "🔴 Sedang Berlangsung";
-    }
-    else{
-      statusEl.innerHTML = "
-<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M589.6 753.7c-24.7 27.4-67.3 29.6-94.7 5l-223.3-201c-27.4-24.7-29.6-67.3-5-94.7 24.7-27.4 67.3-29.6 94.7-5l173.4 156.1 335.9-373c-16.8-22.1-35.8-43-57.2-62.3C629.7 13.4 346.5 28.2 181 212S30.4 679 214.2 844.5s467 150.7 632.5-33.1c112.5-124.9 141.6-295.6 91-444.2L589.6 753.7z"  /></svg>
-        Selesai";
-    }
+  setStatus("countdown", `${h}j ${m}m ${s}d`);
+}
+else if(now >= start && now <= end){
+  setStatus("live");
+}
+else{
+  setStatus("done");
+}
 
   }
 
   updateStatus();
   setInterval(updateStatus,1000);
+
+}
+function setStatus(type, timeText = ""){
+
+  const statusEl = document.getElementById("statusText");
+
+  if(type === "done"){
+    statusEl.style.color = "#16a34a";
+    statusEl.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span>Selesai</span>
+    `;
+  }
+
+  if(type === "live"){
+    statusEl.style.color = "#dc2626";
+    statusEl.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24"
+        fill="currentColor">
+        <circle cx="12" cy="12" r="8"/>
+      </svg>
+      <span>Sedang Berlangsung</span>
+    `;
+  }
+
+  if(type === "countdown"){
+    statusEl.style.color = "#f59e0b";
+    statusEl.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Mulai dalam ${timeText}</span>
+    `;
+  }
 
 }
 
