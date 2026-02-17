@@ -2,10 +2,10 @@
    SERVICE WORKER – MUSHAF ONLINE (OPTIMIZED)
    =============================== */
 
-const CACHE_VERSION = 'v2.0.0';
+const CACHE_VERSION = 'v1.0.0';
 
-const STATIC_CACHE = `mushaf-static-${CACHE_VERSION}`;
-const RUNTIME_CACHE = `mushaf-runtime-${CACHE_VERSION}`;
+const STATIC_CACHE = `muiquran-static-${CACHE_VERSION}`;
+const RUNTIME_CACHE = `muiquran-runtime-${CACHE_VERSION}`;
 
 const MAX_RUNTIME_ITEMS = 120; // batas cache runtime
 
@@ -279,5 +279,6 @@ self.addEventListener('fetch', event => {
   );
 
 });
+
 
 
