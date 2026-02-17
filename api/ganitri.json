@@ -1,16 +1,219 @@
 {
-  "2026-02-16": {
-    "hijriyah": "28 Sya'ban 1447 H",
-    "pemateri": "Ustadz Ahmad",
-    "jabatan": "Ketua DKM",
-    "materi": "Keutamaan Puasa",
-    "kancaSiar": "Kang Fulan"
+  "2026-02-18": {
+    "hijriyah": "30 Sya'ban 1447 H",
+    "pemateri": "KH. AF Ghazali",
+    "jabatan": "-",
+    "materi": "Tilu Tingkatan Puasa",
+    "kancaSiar": "Kang Karib"
   },
-  "2026-02-17": {
-    "hijriyah": "29 Sya'ban 1447 H",
-    "pemateri": "Ustadz Budi",
-    "jabatan": "Pengasuh Pesantren",
-    "materi": "Menjaga Lisan",
-    "kancaSiar": "Kang Rudi"
+  "2026-02-19": {
+    "hijriyah": "1 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-02-20": {
+    "hijriyah": "2 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-02-21": {
+    "hijriyah": "3 Ramadhan 1447 H",
+    "pemateri": "Ust. Ujang Ismatullah / UIS",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-02-22": {
+    "hijriyah": "4 Ramadhan 1447 H",
+    "pemateri": "Ust. Adi Mulyadi (Ki Hejo)",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-02-23": {
+    "hijriyah": "5 Ramadhan 1447 H",
+    "pemateri": "KH. Ahmad Muhammad",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-02-24": {
+    "hijriyah": "6 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-02-25": {
+    "hijriyah": "7 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-02-26": {
+    "hijriyah": "8 Ramadhan 1447 H",
+    "pemateri": "KH. Kamaludin",
+    "jabatan": "DMI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-02-27": {
+    "hijriyah": "9 Ramadhan 1447 H",
+    "pemateri": "KH. Endang AK",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-02-28": {
+    "hijriyah": "10 Ramadhan 1447 H",
+    "pemateri": "UIS",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-01": {
+    "hijriyah": "11 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-02": {
+    "hijriyah": "12 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-03": {
+    "hijriyah": "13 Ramadhan 1447 H",
+    "pemateri": "Ust. Adi Mulyadi (Ki Hejo)",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-04": {
+    "hijriyah": "14 Ramadhan 1447 H",
+    "pemateri": "KH. Ahmad Muhammad",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-05": {
+    "hijriyah": "15 Ramadhan 1447 H",
+    "pemateri": "KH. Ery Syahri Sya'bana",
+    "jabatan": "DMI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-06": {
+    "hijriyah": "16 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-07": {
+    "hijriyah": "17 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-08": {
+    "hijriyah": "18 Ramadhan 1447 H",
+    "pemateri": "KH. Endang AK",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-09": {
+    "hijriyah": "19 Ramadhan 1447 H",
+    "pemateri": "UIS",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-10": {
+    "hijriyah": "20 Ramadhan 1447 H",
+    "pemateri": "Ust. Adi Mulyadi (Ki Hejo)",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-11": {
+    "hijriyah": "21 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-12": {
+    "hijriyah": "22 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-13": {
+    "hijriyah": "23 Ramadhan 1447 H",
+    "pemateri": "KH. Ahmad Muhammad",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-14": {
+    "hijriyah": "24 Ramadhan 1447 H",
+    "pemateri": "Ust. M. Hadi Fauzi",
+    "jabatan": "DMI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-15": {
+    "hijriyah": "25 Ramadhan 1447 H",
+    "pemateri": "KH. Endang AK",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-16": {
+    "hijriyah": "26 Ramadhan 1447 H",
+    "pemateri": "Ust. Udep Hudaepi",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-17": {
+    "hijriyah": "27 Ramadhan 1447 H",
+    "pemateri": "Ust. Rahmat",
+    "jabatan": "TIM NGOBANG",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib"
+  },
+  "2026-03-18": {
+    "hijriyah": "28 Ramadhan 1447 H",
+    "pemateri": "UIS",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-19": {
+    "hijriyah": "29 Ramadhan 1447 H",
+    "pemateri": "KH. Ahmad Muhammad",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
+  },
+  "2026-03-20": {
+    "hijriyah": "30 Ramadhan 1447 H",
+    "pemateri": "KH. Endang AK",
+    "jabatan": "MUI Kec. Parakansalak",
+    "materi": "Seputar Puasa Ramadhan",
+    "kancaSiar": "Kang Karib, Kang Ogir"
   }
 }
