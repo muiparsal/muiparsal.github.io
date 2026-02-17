@@ -108,7 +108,7 @@ display:inline-block;
   overflow: hidden;
   margin: 16px 0;
 }
-body.dark .spoiler{border-color:#2b3444}
+body.dark .spoiler{border-color:#4ece8d}
 .spoiler input {
   display: none;
 }
@@ -123,12 +123,12 @@ body.dark .spoiler{border-color:#2b3444}
   font-weight: 600;
   transition: background .2s ease;
 }
-body.dark .spoiler label{background: #111827;}
+body.dark .spoiler label{background: #32a96d;}
 
 .spoiler label:hover {
   background: #d4dae0;
 }
-body.dark .spoiler label:hover{background: #080e1b;}
+body.dark .spoiler label:hover{background: #379766;}
 .spoiler label::after {
   content: "＋";
   font-size: 18px;
@@ -166,3 +166,4 @@ body.dark .spoiler label:hover{background: #080e1b;}
   font-size: 14px;
 
 }
+
