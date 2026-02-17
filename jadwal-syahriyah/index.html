@@ -25,10 +25,83 @@
 <link rel="stylesheet" href="/css/nav.css"> 
 <link rel="stylesheet" href="/css/surat.css">
 <link rel="stylesheet" href="/css/banner-surat.css">
-<link rel="stylesheet" href="/css/jadwal-imsakiyah.css">
 
  <style>
- .footer-container,.footer-bottom{max-width:850px}
+ .jadwalContainer{
+  max-width: 850px;
+  margin: auto;
+  padding: 35px 16px 16px;
+}
+.topWrap{text-align:center;margin-bottom:35px}
+.topWrap h2{margin-bottom:1x}
+.desc{margin:35px 0 30px;line-height:1.6}
+
+.header{
+  margin-bottom:10px;
+}
+.syahriyah-card{
+  background:var(--card);
+  margin:15px auto;
+  max-width:600px;
+  padding:22px;
+  border-radius:14px;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.05);
+  border:1px solid var(--border-accent);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+body.dark .syahriyah-card{color:#e2e8f0;}
+p.syahriyah-card{opacity:.85;font-size:.9em;line-height:1.6}
+.syahriyah-card h2{
+  margin-bottom:16px;
+  margin-top:0;
+  color:#065f46;
+  text-align:center;
+}
+ .dark .syahriyah-card h2{color:#69a594} 
+
+.lokasi{
+  font-weight:bold;
+  font-size:1.12em;
+  text-align:center;
+}
+.tanggal{
+  opacity:.8;
+  font-size:14px;
+}
+
+.hijriyah{
+  opacity:.7;
+  font-size:13px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+body.dark .row{border-bottom-color:#2b3444}
+.row.highlight{
+  font-weight:600;
+}
+
+/* Value khusus */
+.value.imsak{
+  color:#e65100;
+  font-weight:600;
+}
+
+.value.maghrib{
+  color:#2e7d32;
+  font-weight:700;
+  font-size:1.08em;
+
+}
+#lokasi,#tanggal,#hijriyah {line-height:1.5}
+#lokasi {font-weight:600;font-size:1.15em}
+#hijriyah{color:green;margin-bottom:15px;font-weight:600}
+
+body.dark #hijriyah, body.dark .value.maghrib{color:#81cc20}
  </style>
  
 </head>
@@ -179,7 +252,7 @@ fetch('/api/syahriyah.json')
     }
 
     container.innerHTML = `
-      <div class="card">
+      <div class="syahriyah-card">
         ${badgeHTML}
         <h2>${jadwal.judul}</h2>
         <p><strong>Tanggal:</strong> ${tanggalFormat}</p>
