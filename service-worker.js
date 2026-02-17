@@ -2,7 +2,7 @@
    SERVICE WORKER – MUSHAF ONLINE (OPTIMIZED)
    =============================== */
 
-const CACHE_VERSION = 'v1.0.1';
+const CACHE_VERSION = 'v2.0.0';
 
 const STATIC_CACHE = `mushaf-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `mushaf-runtime-${CACHE_VERSION}`;
@@ -55,12 +55,12 @@ const STATIC_FILES = [
   // ICON
   '/assets/img/favicon.ico',
   '/assets/img/logo.png',
-  'https://lh3.googleusercontent.com/d/1-Ufwu2QXVkDiVmHp0wr0tq4GUVUrEpH-=w200',
-  'https://lh3.googleusercontent.com/d/1ZQFCwSlpv30hS8y6KEqUGqPuuVPiDaTO=w200',
+  '/assets/img/quran-logo.png',
+  '/assets/img/quran-logo-green.png',
   '/assets/img/ramadhan.png',
   '/assets/img/iphone15.png',
   '/assets/img/tafsir.png',
-  '/assets/img/smart-media.jpg'
+  '/assets/img/qris-mui.png'
 
 ];
 
@@ -279,4 +279,5 @@ self.addEventListener('fetch', event => {
   );
 
 });
+
 
