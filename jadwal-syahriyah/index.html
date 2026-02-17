@@ -76,7 +76,7 @@ p.syahriyah-card{opacity:.85;font-size:.9em;line-height:1.6}
 
 .row{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-start;
   padding:10px 0;
   border-bottom:1px solid #eee;
 }
@@ -84,7 +84,7 @@ body.dark .row{border-bottom-color:#2b3444}
 .row.highlight{
   font-weight:600;
 }
-
+.lbl{min-width:110px}
 /* Value khusus */
 .value.imsak{
   color:#e65100;
@@ -255,18 +255,18 @@ fetch('/api/syahriyah.json')
       <div class="syahriyah-card">
         ${badgeHTML}
         <h2>${jadwal.judul}</h2>
-        <p><strong>Tanggal:</strong> ${tanggalFormat}</p>
-        <p><strong>Jam:</strong> ${jadwal.jam_mulai} - ${jadwal.jam_selesai} WIB</p>
-        <p><strong>Lokasi:</strong> ${jadwal.lokasi}</p>
-        <p>
-  <strong>Alamat:</strong> 
+        <p class="row"><span class="lbl"><strong>Tanggal</strong></span> ${tanggalFormat}</p>
+        <p class="row"><span class="lbl"><strong>Jam</strong></span> ${jadwal.jam_mulai} - ${jadwal.jam_selesai} WIB</p>
+        <p class="row"><span class="lbl"><strong>Lokasi</strong></span> ${jadwal.lokasi}</p>
+        <p class="row">
+  <span class="lbl"><strong>Alamat:</strong></span>
   <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(jadwal.alamat)}" target="_blank">
     ${jadwal.alamat || '-'}
   </a>
 </p>
-        <p><strong>Pemateri:</strong> ${jadwal.pemateri}</p>
-        <p><strong>Materi:</strong> ${jadwal.materi}</p>
-        <p>${jadwal.deskripsi || ''}</p>
+        <p class="row"><span class="lbl"><strong>Pemateri</strong></span> ${jadwal.pemateri}</p>
+        <p class="row"><span class="lbl"><strong>Materi</strong></span> ${jadwal.materi}</p>
+        <p class="row"><spanclass="lbl" ><strong>Lingkup</strong></span> ${jadwal.deskripsi || ''}</p>
         ${countdownHTML}
         ${statusHTML}
       </div>
