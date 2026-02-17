@@ -3,26 +3,304 @@
   "zona": "WIB",
   "jadwal": [
     {
-      "tanggal": "2026-02-16",
-      "hijriyah": "28 Sya'ban 1447 H",
-      "imsak": "04:30",
-      "subuh": "04:40",
-      "dzuhur": "12:05",
-      "ashar": "15:28",
-      "maghrib": "18:10",
+      "tanggal": "2026-02-19",
+      "hijriyah": "1 Ramadhan 1447 H",
+      "imsak": "04:31",
+      "subuh": "04:41",
+      "dzuhur": "12:09",
+      "ashar": "15:20",
+      "maghrib": "18:19",
+      "isya": "19:29"
+    },
+    {
+      "tanggal": "2026-02-20",
+      "hijriyah": "2 Ramadhan 1447 H",
+      "imsak": "04:31",
+      "subuh": "04:41",
+      "dzuhur": "12:09",
+      "ashar": "15:19",
+      "maghrib": "18:19",
+      "isya": "19:29"
+    },
+    {
+      "tanggal": "2026-02-21",
+      "hijriyah": "3 Ramadhan 1447 H",
+      "imsak": "04:31",
+      "subuh": "04:41",
+      "dzuhur": "12:09",
+      "ashar": "15:18",
+      "maghrib": "18:18",
+      "isya": "19:28"
+    },
+    {
+      "tanggal": "2026-02-22",
+      "hijriyah": "4 Ramadhan 1447 H",
+      "imsak": "04:31",
+      "subuh": "04:41",
+      "dzuhur": "12:09",
+      "ashar": "15:17",
+      "maghrib": "18:18",
+      "isya": "19:28"
+    },
+    {
+      "tanggal": "2026-02-23",
+      "hijriyah": "5 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:09",
+      "ashar": "15:17",
+      "maghrib": "18:18",
+      "isya": "19:28"
+    },
+    {
+      "tanggal": "2026-02-24",
+      "hijriyah": "6 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:09",
+      "ashar": "15:16",
+      "maghrib": "18:17",
+      "isya": "19:27"
+    },
+    {
+      "tanggal": "2026-02-25",
+      "hijriyah": "7 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:15",
+      "maghrib": "18:17",
+      "isya": "19:27"
+    },
+    {
+      "tanggal": "2026-02-26",
+      "hijriyah": "8 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:14",
+      "maghrib": "18:17",
+      "isya": "19:26"
+    },
+    {
+      "tanggal": "2026-02-27",
+      "hijriyah": "9 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:13",
+      "maghrib": "18:16",
+      "isya": "19:26"
+    },
+    {
+      "tanggal": "2026-02-28",
+      "hijriyah": "10 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:12",
+      "maghrib": "18:16",
+      "isya": "19:26"
+    },
+    {
+      "tanggal": "2026-03-01",
+      "hijriyah": "11 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:11",
+      "maghrib": "18:16",
+      "isya": "19:25"
+    },
+    {
+      "tanggal": "2026-03-02",
+      "hijriyah": "12 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:08",
+      "ashar": "15:10",
+      "maghrib": "18:15",
+      "isya": "19:25"
+    },
+    {
+      "tanggal": "2026-03-03",
+      "hijriyah": "13 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:07",
+      "ashar": "15:09",
+      "maghrib": "18:15",
+      "isya": "19:24"
+    },
+    {
+      "tanggal": "2026-03-04",
+      "hijriyah": "14 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:07",
+      "ashar": "15:09",
+      "maghrib": "18:14",
+      "isya": "19:24"
+    },
+    {
+      "tanggal": "2026-03-05",
+      "hijriyah": "15 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:07",
+      "ashar": "15:09",
+      "maghrib": "18:14",
+      "isya": "19:23"
+    },
+    {
+      "tanggal": "2026-03-06",
+      "hijriyah": "16 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:07",
+      "ashar": "15:10",
+      "maghrib": "18:14",
+      "isya": "19:23"
+    },
+    {
+      "tanggal": "2026-03-07",
+      "hijriyah": "17 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:07",
+      "ashar": "15:10",
+      "maghrib": "18:13",
+      "isya": "19:22"
+    },
+    {
+      "tanggal": "2026-03-08",
+      "hijriyah": "18 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:06",
+      "ashar": "15:11",
+      "maghrib": "18:13",
+      "isya": "19:22"
+    },
+    {
+      "tanggal": "2026-03-09",
+      "hijriyah": "19 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:06",
+      "ashar": "15:11",
+      "maghrib": "18:12",
+      "isya": "19:21"
+    },
+    {
+      "tanggal": "2026-03-10",
+      "hijriyah": "20 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:06",
+      "ashar": "15:12",
+      "maghrib": "18:12",
+      "isya": "19:21"
+    },
+    {
+      "tanggal": "2026-03-11",
+      "hijriyah": "21 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:06",
+      "ashar": "15:12",
+      "maghrib": "18:11",
       "isya": "19:20"
     },
     {
-      "tanggal": "2026-02-17",
-      "hijriyah": "29 Sya'ban 1447 H",
-      "imsak": "04:30",
-      "subuh": "04:40",
+      "tanggal": "2026-03-12",
+      "hijriyah": "22 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
       "dzuhur": "12:05",
-      "ashar": "15:29",
+      "ashar": "15:12",
       "maghrib": "18:11",
-      "isya": "19:21"
+      "isya": "19:20"
+    },
+    {
+      "tanggal": "2026-03-13",
+      "hijriyah": "23 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:05",
+      "ashar": "15:13",
+      "maghrib": "18:11",
+      "isya": "19:19"
+    },
+    {
+      "tanggal": "2026-03-14",
+      "hijriyah": "24 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:05",
+      "ashar": "15:13",
+      "maghrib": "18:10",
+      "isya": "19:19"
+    },
+    {
+      "tanggal": "2026-03-15",
+      "hijriyah": "25 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:05",
+      "ashar": "15:13",
+      "maghrib": "18:10",
+      "isya": "19:18"
+    },
+    {
+      "tanggal": "2026-03-16",
+      "hijriyah": "26 Ramadhan 1447 H",
+      "imsak": "04:33",
+      "subuh": "04:43",
+      "dzuhur": "12:04",
+      "ashar": "15:13",
+      "maghrib": "18:09",
+      "isya": "19:18"
+    },
+    {
+      "tanggal": "2026-03-17",
+      "hijriyah": "27 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:04",
+      "ashar": "15:14",
+      "maghrib": "18:09",
+      "isya": "19:17"
+    },
+    {
+      "tanggal": "2026-03-18",
+      "hijriyah": "28 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:03",
+      "ashar": "15:14",
+      "maghrib": "18:08",
+      "isya": "19:16"
+    },
+    {
+      "tanggal": "2026-03-19",
+      "hijriyah": "29 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:03",
+      "ashar": "15:14",
+      "maghrib": "18:08",
+      "isya": "19:16"
+    },
+    {
+      "tanggal": "2026-03-20",
+      "hijriyah": "30 Ramadhan 1447 H",
+      "imsak": "04:32",
+      "subuh": "04:42",
+      "dzuhur": "12:03",
+      "ashar": "15:14",
+      "maghrib": "18:07",
+      "isya": "19:16"
     }
   ]
 }
-
-
