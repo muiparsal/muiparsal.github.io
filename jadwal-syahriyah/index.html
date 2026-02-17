@@ -236,7 +236,7 @@ fetch('/api/syahriyah.json')
     }
     else if(now >= mulai){
       badgeHTML = `<span class="badge">Sedang Berlangsung</span>`;
-      countdownHTML = `<div class="countdown">Sedang berlangsung...</div>`;
+      countdownHTML = `<div class="countdown">Pengajian Syahriyah sedang berlangsung...</div>`;
     }
     else{
       const distance = mulai - now;
@@ -266,7 +266,7 @@ fetch('/api/syahriyah.json')
 </div>
         <div class="row"><span class="lbl"><strong>Pemateri</strong></span> ${jadwal.pemateri}</div>
         <div class="row"><span class="lbl"><strong>Materi</strong></span> ${jadwal.materi}</div>
-        <div class="row"><spanclass="lbl" ><strong>Lingkup</strong></span> ${jadwal.deskripsi || ''}</div>
+        <div class="row"><span class="lbl" ><strong>Lingkup</strong></span> ${jadwal.deskripsi || ''}</div>
         ${countdownHTML}
         ${statusHTML}
       </div>
