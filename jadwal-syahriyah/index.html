@@ -105,6 +105,7 @@ body.dark .row{border-bottom-color:#2b3444}
 body.dark #hijriyah, body.dark .value.maghrib{color:#81cc20}
 .countdown{margin-top:13px;text-align:center;font-weight:600;color:#ded24c}  
 .selesai{margin-top:13px;text-align:center;font-weight:600;color:var(--nav-underline)}
+ .badge{font-family:AbuFaqih,serif;font-size:24px;background:#029249;color:#fff;padding:8px 10px;border-radius:5px}
  </style>
  
 </head>
@@ -238,7 +239,7 @@ fetch('/api/syahriyah.json')
       statusHTML = `<div class="selesai">Acara telah selesai</div>`;
     }
     else if(now >= mulai){
-      badgeHTML = `<span class="badge">Sedang Berlangsung</span>`;
+      badgeHTML = `<span class="badge">مستمر</span>`;
       countdownHTML = `<div class="countdown">Pengajian Syahriyah sedang berlangsung...</div>`;
     }
     else{
