@@ -32,8 +32,7 @@
 }
 body.dark .row{border-bottom-color:#2b3444}
 .row.highlight{
-  border-left:4px solid #2e7d32;
-  padding-left:8px; /* kecil saja */
+  font-weight:600;
 }
 
 /* Value khusus */
@@ -53,6 +52,7 @@ body.dark .row{border-bottom-color:#2b3444}
 #hijriyah{color:green;margin-bottom:15px;font-weight:600}
 
 body.dark #hijriyah, body.dark .value.maghrib{color:#81cc20}
+
 
 
 
