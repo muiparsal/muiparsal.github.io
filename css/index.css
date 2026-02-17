@@ -15,10 +15,10 @@
 .title-img{
   height:42px;
   width:auto;
-  content:url("https://lh3.googleusercontent.com/d/1ZQFCwSlpv30hS8y6KEqUGqPuuVPiDaTO=w200");
+  content:url("/assets/img/quran-logo-green.png");
 }
 body.dark .title-img{
-  content:url("https://lh3.googleusercontent.com/d/1-Ufwu2QXVkDiVmHp0wr0tq4GUVUrEpH-=w200");
+  content:url("/assets/img/quran-logo.png");
 }
 
 .navsurah {
@@ -169,3 +169,4 @@ body.dark .card:hover {
   bottom:25px;
   right:25px;
 }
+
