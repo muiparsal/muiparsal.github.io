@@ -12,7 +12,8 @@
 }
 .lokasi{
   font-weight:bold;
-  font-size:18px;
+  font-size:1.12em;
+  text-align:center;
 }
 .tanggal{
   opacity:.8;
@@ -52,6 +53,7 @@ body.dark .row{border-bottom-color:#2b3444}
 #hijriyah{color:green;margin-bottom:15px;font-weight:600}
 
 body.dark #hijriyah, body.dark .value.maghrib{color:#81cc20}
+
 
 
 
