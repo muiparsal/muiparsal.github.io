@@ -87,6 +87,68 @@ body.dark .radio-card{color:#e2e8f0;}
   align-items:center;
   gap:8px;
 }
+  /* ===== SPOILER ===== */
+.spoiler {
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.spoiler input {
+  display: none;
+}
+
+.spoiler label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f6f8fa;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .2s ease;
+}
+
+.spoiler label:hover {
+  background: #eef1f4;
+}
+
+.spoiler label::after {
+  content: "＋";
+  font-size: 18px;
+  transition: transform .3s ease;
+}
+
+.spoiler input:checked + label::after {
+  content: "−";
+}
+
+.spoiler-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  transition: max-height .4s ease, padding .3s ease;
+}
+
+.spoiler input:checked ~ .spoiler-content {
+  max-height: 1000px;
+  padding: 16px;
+}
+
+/* ===== CONTENT ===== */
+.spoiler-content p {
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+
+.spoiler-content code {
+  background: #f3f4f6;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+}
 </style>
  
 </head>
@@ -139,6 +201,15 @@ body.dark .radio-card{color:#e2e8f0;}
 
   <div class="status" id="statusText"></div>
 
+  <div class="spoiler">
+    <input type="checkbox" id="spoiler-1">
+    <label for="spoiler-1">Klik untuk membuka spoiler</label>
+    <div class="spoiler-content">
+      <p>Ini adalah isi spoiler.</p>
+      <p>Bisa berisi <strong>teks</strong>, <em>link</em>, atau <code>kode</code>.</p>
+    </div>
+  </div>
+  
 </div>
 
 <p class="desc">Jadwal Pemateri ini <strong>update tiap hari</strong>. Program ini terselenggara atas kerja sama <strong>Radio Muara Ganitri 105.3 FM</strong>, <strong>MUI kecamatan Parakansalak</strong> dan <strong>DMI Kecamatan Parakansalak</strong>.</p>  
