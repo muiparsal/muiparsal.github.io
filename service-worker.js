@@ -38,7 +38,6 @@ const STATIC_FILES = [
   '/js/index.js',
   '/js/fetch.js',
   '/js/nav.js',
-  '/js/nav.js',
   '/js/player.js',
   '/js/toast.js',
   '/js/waqafsplitter.js',
@@ -279,6 +278,7 @@ self.addEventListener('fetch', event => {
   );
 
 });
+
 
 
 
