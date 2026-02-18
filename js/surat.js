@@ -99,11 +99,11 @@ function updateMediaSession(){
 
   navigator.mediaSession.metadata = new MediaMetadata({
     title: `${suratName} • Ayat ${now}/${total}`,
-    artist: 'Al-Qur\'an Digital',
+    artist: 'Al-Qur\'an Digital MUI Parakansalak',
     album: 'Web Quran',
     artwork: [
       {
-        src: '/assets/img/quran-thumb.jpg', // pakai yang sudah ada
+        src: '/assets/img/quran-thumb2.jpg', // pakai yang sudah ada
         sizes: '512x512',
         type: 'image/jpeg'
       }
@@ -359,6 +359,7 @@ function slugify(n){
 }
 
 load();
+
 
 
 
