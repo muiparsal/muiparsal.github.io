@@ -152,6 +152,108 @@ body.dark .spoiler label{background:#23493a;}
   font-family: monospace;
   font-size: 14px;
 }
+  /* =========================
+   MINI PLAYER BAR
+========================= */
+.radio-bar{
+  width:100%;
+  max-width:500px;
+  background:#fff;
+  padding:10px 15px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+/* PLAY BUTTON */
+#playBtn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,#2e7d32,#57a05b);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.2s;
+}
+#playBtn:active{transform:scale(.9);}
+#playBtn svg{width:20px;height:20px;fill:currentColor}
+
+/* INFO */
+.info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.title{
+  font-size:.9em;
+  font-weight:600;
+}
+
+.live{
+  font-size:.8;
+  color:#e53935;
+  letter-spacing:.5px;
+}
+.live::before{
+  content:"● ";
+  animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:.3}
+  100%{opacity:1}
+}
+
+#volume{
+  width:80px;
+  height:4px;
+  -webkit-appearance:none;
+  appearance:none;
+  background:#ddd;
+  border-radius:4px;
+  outline:none;
+}
+
+/* TRACK */
+#volume::-webkit-slider-runnable-track{
+  height:4px;
+  background:#ddd;
+  border-radius:4px;
+}
+
+/* THUMB */
+#volume::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#2e7d32;
+  cursor:pointer;
+  margin-top:-5px;
+}
+
+/* FIREFOX */
+#volume::-moz-range-track{
+  height:4px;
+  background:#ddd;
+  border-radius:4px;
+}
+
+#volume::-moz-range-thumb{
+  width:14px;
+  height:14px;
+  border:none;
+  border-radius:50%;
+  background:#2e7d32;
+}
 </style>
  
 </head>
@@ -204,6 +306,21 @@ body.dark .spoiler label{background:#23493a;}
 
   <div class="status" id="statusText"></div>
 
+<div class="radio-bar">
+  <button id="playBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+  </button>
+
+  <div class="info">
+    <div class="title">Radio Muara Ganitri</div>
+    <div class="live">LIVE</div>
+  </div>
+
+  <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+</div>
+  
   <div class="spoiler">
     <input type="checkbox" id="spoiler-1">
     <label for="spoiler-1">Jadwal Pemateri lengkap Klik Disini</label>
@@ -404,6 +521,40 @@ init();
 
 </script>
 
+ <script>
+const audio = new Audio("https://i.klikhost.com/8016/stream");
+audio.crossOrigin = "anonymous";
+
+const playBtn = document.getElementById("playBtn");
+const volume  = document.getElementById("volume");
+
+const svgPlay = `
+<svg viewBox="0 0 24 24">
+  <path d="M8 5v14l11-7z"/>
+</svg>`;
+
+const svgPause = `
+<svg viewBox="0 0 24 24">
+  <rect x="6" y="5" width="4" height="14"/>
+  <rect x="14" y="5" width="4" height="14"/>
+</svg>`;
+
+/* PLAY */
+playBtn.onclick = ()=>{
+  if(audio.paused){
+    audio.play();
+  }else{
+    audio.pause();
+  }
+};
+
+audio.onplay = ()=> playBtn.innerHTML = svgPause;
+audio.onpause = ()=> playBtn.innerHTML = svgPlay;
+
+/* VOLUME */
+volume.oninput = ()=> audio.volume = volume.value;
+</script> 
+  
 <script src="/js/fetch.js"></script>
 <script src="/js/toast.js"></script>
 
