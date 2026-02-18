@@ -1,0 +1,118 @@
+/* =========================
+   RADIO PLAYER MODE
+========================= */
+
+/* wrap lebih clean */
+.player-wrap{
+  border-top:1px solid #cfe9df;
+}
+
+/* sembunyikan fitur yang tidak dipakai */
+#prevBtn,
+#nextBtn,
+#repeatBtn,
+#qpBar,
+#qpThumb,
+#timeTotal{
+  display:none !important;
+}
+
+/* ubah progress jadi indikator live bar */
+.radio-live-bar{
+  flex:1;
+  height:4px;
+  background:linear-gradient(90deg,#0ea5a4,#34d399,#0ea5a4);
+  border-radius:20px;
+  animation:livePulse 2s linear infinite;
+}
+
+@keyframes livePulse{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
+
+/* play button sedikit lebih dominan */
+#playBtn{
+  background:linear-gradient(135deg,#0f766e,#14b8a6);
+  box-shadow:0 4px 12px rgba(16,185,129,.25);
+}
+
+#playBtn:hover{
+  transform:scale(1.05);
+}
+
+/* =========================
+   PLAYER INFO (RADIO)
+========================= */
+
+.player-info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.info-surat{
+  font-weight:600;
+  font-size:14px;
+}
+
+.info-ayat{
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#dc2626;
+  font-weight:600;
+}
+
+/* live dot */
+.info-ayat::before{
+  content:"";
+  width:8px;
+  height:8px;
+  background:#dc2626;
+  border-radius:50%;
+  animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:.3}
+  100%{opacity:1}
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .player-wrap{
+  background:#061810;
+  border-color:#0f2e26;
+}
+
+body.dark #playBtn{
+  background:linear-gradient(135deg,#065f46,#10b981);
+}
+
+body.dark .info-surat{
+  color:#e2f8f1;
+}
+
+body.dark .info-ayat{
+  color:#f87171;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+  .player-wrap{
+    padding:8px;
+  }
+
+  #playBtn{
+    width:48px;
+    height:48px;
+  }
+}
