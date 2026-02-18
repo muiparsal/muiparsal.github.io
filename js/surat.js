@@ -103,7 +103,7 @@ function updateMediaSession(){
     album: 'Web Quran',
     artwork: [
       {
-        src: '/assets/img/quran-thumb2.jpg', // pakai yang sudah ada
+        src: '/assets/img/quran-thumb3.jpg', // pakai yang sudah ada
         sizes: '512x512',
         type: 'image/jpeg'
       }
@@ -359,6 +359,7 @@ function slugify(n){
 }
 
 load();
+
 
 
 
