@@ -83,6 +83,48 @@ if (id !== 1 && id !== 9) {
 }
 
 const audio=document.getElementById('player');
+
+/* =========================
+   MEDIA SESSION
+========================= */
+
+function updateMediaSession(){
+  if (!('mediaSession' in navigator)) return;
+
+  let suratName = titleLatin?.textContent || '';
+  suratName = suratName.replace(/^\d+\.\s*/, '');
+
+  const total = ayatEls.length;
+  const now   = currentIndex >= 0 ? currentIndex+1 : 0;
+
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: `${suratName} • Ayat ${now}/${total}`,
+    artist: 'Al-Qur\'an Digital',
+    album: 'Web Quran',
+    artwork: [
+      {
+        src: '/assets/img/quran-thumb.jpg', // pakai yang sudah ada
+        sizes: '512x512',
+        type: 'image/jpeg'
+      }
+    ]
+  });
+
+  navigator.mediaSession.playbackState =
+    audio.paused ? "paused" : "playing";
+
+  navigator.mediaSession.setActionHandler('play', () => audio.play());
+  navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+
+  navigator.mediaSession.setActionHandler('previoustrack', () => {
+    playAyat(currentIndex - 1);
+  });
+
+  navigator.mediaSession.setActionHandler('nexttrack', () => {
+    playAyat(currentIndex + 1);
+  });
+}
+
 const wrap=document.getElementById('playerWrap');
 const topBtn=document.querySelector('.top');
 
@@ -112,6 +154,7 @@ function playAyat(i){
   wrap.classList.add('show');
   audio.play();
   highlight(i);
+  updateMediaSession();
   localStorage.setItem(`lastAyatSurah${id}`,i);
 }
 
@@ -131,6 +174,9 @@ audio.addEventListener('ended',()=>{
     location.href=`/surat/${nextSurah}-${getSlugName(nextSurah)}/`;
   }
 });
+
+audio.addEventListener('play', updateMediaSession);
+audio.addEventListener('pause', updateMediaSession);
 
 audio.addEventListener("error", () => {
   if(isClosing){
@@ -313,5 +359,6 @@ function slugify(n){
 }
 
 load();
+
 
 
