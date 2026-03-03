@@ -2,7 +2,7 @@
    SERVICE WORKER – MUSHAF ONLINE (OPTIMIZED)
    =============================== */
 
-const CACHE_VERSION = 'v2.1.3';
+const CACHE_VERSION = 'v2.1.4';
 
 const STATIC_CACHE = `muiquran-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `muiquran-runtime-${CACHE_VERSION}`;
@@ -278,6 +278,7 @@ self.addEventListener('fetch', event => {
   );
 
 });
+
 
 
 
